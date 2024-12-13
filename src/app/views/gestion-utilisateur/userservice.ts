@@ -42,6 +42,13 @@ constructor(private http : HttpClient,private route: ActivatedRoute){}
     headers = headers.set("Authorization", 'Bearer ' + user.token);
     return this.http.post(CONFIG.URL +  "users/update",users,{ headers: headers})}
    
+    modifierEleve(users:any,classe:any) {
+      const user = JSON.parse(localStorage.getItem('currentUser')|| '{}');
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+      headers = headers.set("Authorization", 'Bearer ' + user.token);
+      return this.http.post(CONFIG.URL +  "users/updateEleve?nomclasse="+classe,users,{ headers: headers})}
+     
    adduser(users:any) {
     const user = JSON.parse(localStorage.getItem('currentUser')|| '{}');
     let headers = new HttpHeaders();

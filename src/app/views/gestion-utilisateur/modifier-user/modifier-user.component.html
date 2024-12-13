@@ -90,16 +90,17 @@
                               </div>
 
 
-                              <div *ngIf="isEleveSelected" class="form-group col-md-6 col-lg-6">
-                                <label class="form-label">Libellé</label>
-                                <input type="text" class="form-control" formControlName="libelle" placeholder="Entrez le libelle">
-                            </div>
                             
-                            <div *ngIf="isEleveSelected" class="form-group col-md-6 col-lg-6">
+                              <div *ngIf="isEleveSelected" class="form-group col-md-6 col-lg-6">
                                 <label class="form-label">Classe</label>
-                                <input type="text" class="form-control" formControlName="libelle" placeholder="Entrez la classe">
-                            </div>
-                  
+                                <select 
+                                  class="form-control" 
+                                  formControlName="nomclasse">
+                                  <option *ngFor="let u of allclasse" [value]="u.nomclasse">
+                                    {{ u.nomclasse }}
+                                  </option>
+                                </select>
+                              </div>
                   </div>
                 
            
