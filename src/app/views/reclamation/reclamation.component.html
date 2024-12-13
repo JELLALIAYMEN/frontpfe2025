@@ -1,0 +1,130 @@
+<table *ngIf="!this.affichage" >
+    <tr>
+      <td *ngIf="this.profil=='Admin'"><h2>Gestion Reclamations</h2>  </td>
+
+      <td *ngIf="this.profil=='Eleve'"><h2>Mes Reclamations</h2>  </td>
+      <td width="600"></td>
+      <td *ngIf="this.profil=='Eleve'"><button type="button" [routerLink]="['/Reclamation/add']"  class="btn btn-info">Ajouter Reclamation</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table *ngIf="!this.affichage" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Resultat</th>
+        <th scope="col">Sujet</th>
+        <th scope="col">Utilisateur</th>
+      
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Admin'">
+      <tr *ngFor="let u of allrec">
+        <th>{{u?.date}}</th>
+        <td>{{u?.resultat}}</td>
+        <td>{{u?.sujet}}</td>
+        <td>{{u?.user?.email}}</td>
+        <td *ngIf="u.resultat=='Non Traité'"><button type="button" (click)="rep(u.id)" class="btn btn-info">Répondre
+
+        </button>
+        </td>
+        
+        
+      </tr>
+     
+    </tbody>
+    <tbody *ngIf="this.profil=='Eleve'">
+        <tr *ngFor="let u of allbyemail">
+          <th>{{u?.date}}</th>
+          <td>{{u?.resultat}}</td>
+          <td>{{u?.sujet}}</td>
+          <td>{{u?.user?.email}}</td>
+        
+        </tr>
+       
+      </tbody>
+    
+
+  </table>
+
+
+
+  <div *ngIf="this.affichage" class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="recform">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+               
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Reponse</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="resultat"
+    />
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    recform.get('sujet')?.touched &&
+      !recform.get('sujet')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+              
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="reponse()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

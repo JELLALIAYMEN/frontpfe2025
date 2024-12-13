@@ -1,0 +1,84 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="matForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+
+                      />
+                  
+                    </div>
+             
+                      
+                  </div>
+                 
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">coefficient</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="coefficient"
+
+                      />
+                  
+                    </div>
+             
+                      
+                  </div>
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="modifier()"[disabled]=" matForm.invalid">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

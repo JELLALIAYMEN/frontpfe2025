@@ -1,0 +1,54 @@
+<table>
+    <tr>
+      <td><h2>Gestion Paiement</h2>  </td>
+      <td width="600"></td>
+      <td><button  *ngIf="this.profil=='Admin'" type="button" [routerLink]="['/gestion-paiement/add']"  class="btn btn-info">Ajouter Paiement</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Montant</th>
+        <th scope="col">Date</th>
+        <th scope="col">Type Paiement</th>
+        <th scope="col">Statut Paiement</th>
+        <th scope="col">Mode Paiement</th>
+        <th scope="col">Modalite Paiement</th>
+        <th scope="col"> Nom et Prenom Eleve</th>
+        <th scope="col">Email Eleve</th>
+  
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Admin'">
+      <tr *ngFor="let u of allpay">
+        <th>{{u?.amount}}</th>
+        <td>{{u?.date}}</td>
+        <td>{{u?.typepay}}</td>
+        <td>{{u?.statuspay}}</td>
+        <td>{{u?.modepay}}</td>
+        <td>{{u?.modalitePay}}</td>
+        <td>{{u?.user?.nom}} {{u?.user?.prenom}}</td>
+        <tD>{{u?.user?.email}}</tD>
+      </tr>
+     
+    </tbody>
+    <tbody *ngIf="this.profil=='Eleve'">
+        <tr *ngFor="let u of allbyuser">
+          <th>{{u?.amount}}</th>
+          <td>{{u?.date}}</td>
+          <td>{{u?.typepay}}</td>
+          <td>{{u?.statuspay}}</td>
+          <td>{{u?.modepay}}</td>
+          <td>{{u?.modalitePay}}</td>
+          <td>{{u?.user?.nom}} {{u?.user?.prenom}}</td>
+          <tD>{{u?.user?.email}}</tD>
+        </tr>
+       
+      </tbody>
+      
+</table>

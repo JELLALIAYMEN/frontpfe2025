@@ -1,0 +1,27 @@
+<table>
+    <tr>
+      <td><h2>Gestion Departement</h2>  </td>
+      <td width="600"></td>
+      <td><a type="button" [routerLink]="['/ajout-departement']"  class="btn btn-info">Ajouter Departement</a>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+      
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of alldepart">
+        <th>{{u?.nom}}</th>
+        <td><a [routerLink]="['../modifier-departement',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+
+  
+      </tr>
+     
+    </tbody>
+  </table>

@@ -1,0 +1,154 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="contratForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      contratForm.get('nom')?.touched &&
+                        !contratForm.get('nom')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>                   
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Type</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="type"
+  
+                        />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        contratForm.get('type')?.touched &&
+                          !contratForm.get('type')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Durée</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="dure"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      contratForm.get('dure')?.touched &&
+                        !contratForm.get('dure')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>      
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Nature</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="nature"
+  
+                        />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        contratForm.get('nature')?.touched &&
+                          !contratForm.get('nature')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>      
+                      </div>
+                  
+                  </div>
+             
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">N° Licence de joueur</label>
+                        <select
+                        type="text"
+                        class="form-control"
+                        formControlName="nlicence">
+                        <option *ngFor="let j of allj" [value]="j.nlicence">{{j.nlicence}}</option>
+                      </select>
+                    
+                    </div>
+                   
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()" [disabled]=" contratForm.invalid">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,177 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="membreForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+                        [(ngModel)]="membre.nom"
+
+                      />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Adresse</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="adresse"
+                          [(ngModel)]="membre.adresse"
+
+                        />
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Code Postale</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="codepostale"
+                        [(ngModel)]="membre.codepostale"
+
+                      />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Date de naissance</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="date"
+                          class="form-control"
+                          formControlName="datedenaissance"
+                          [(ngModel)]="membre.datedenaissance"
+
+                        />
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Poste</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="poste"
+                        [(ngModel)]="membre.poste"
+
+                        />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Type</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="type"
+                        [(ngModel)]="membre.type"
+                        />
+                        <!-- Input -->
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Ville</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="ville"
+                        [(ngModel)]="membre.ville"
+                        />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Email</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="email"
+                        [(ngModel)]="membre.email"
+                        />
+                        <!-- Input -->
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Téléphone</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="tel"
+                        [(ngModel)]="membre.tel"
+                        />
+                    
+                    </div>
+                   
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="modifier()">
+                    Modifier
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

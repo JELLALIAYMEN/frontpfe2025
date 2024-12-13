@@ -1,0 +1,50 @@
+<table>
+    <tr>
+      <td><h2>Gestion Joueurs</h2>  </td>
+      <td width="600"></td>
+      <td><button type="button" [routerLink]="['/gestion-joueur/add']"  class="btn btn-info">Ajouter Joueur</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Date Création</th>
+        <th scope="col">Poste</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Salaire</th>
+        <th scope="col">Prime</th>
+        <th scope="col">N° Licence</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Ajouter Par</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th>
+
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of alljoueur">
+        <th>{{u?.nom}}</th>
+        <td>{{u?.prenom}}</td>
+        <td>{{u?.datenaissance}}</td>
+        <td>{{u?.date}}</td>
+        <td>{{u?.poste}}</td>
+        <td>{{u?.telephone}}</td>
+        <td>{{u?.salaire}}</td>
+        <td>{{u?.prime}}</td>
+        <td>{{u?.nlicence}}</td>
+        <td>{{u?.categorie}}</td>
+        <td>{{u?.user?.email}}</td>
+        <td><a [routerLink]="['modifier',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+        <td><button class="btn btn-danger" (click)="delete(u.id)">Supprimer</button></td>
+
+  
+      </tr>
+     
+    </tbody>
+  </table>

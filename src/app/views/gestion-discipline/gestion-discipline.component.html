@@ -1,0 +1,40 @@
+<table>
+    <tr>
+      <td><h2>Gestion Discipline</h2>  </td>
+      <td width="600"></td>
+      <td><button  *ngIf="this.profil=='Teacher'" type="button" [routerLink]="['/gestion-Discipline/add']"  class="btn btn-info">Ajouter Discipline</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Typr Discipline</th>
+        <th scope="col">Professeur</th>
+        <th scope="col">Eleve</th>
+        
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Admin'">
+      <tr *ngFor="let u of alldiscipline">
+        <th>{{u?.typeDisc}}</th>
+        <td>{{u?.user?.email}}</td>
+        <td>{{u?.eleve?.email}}</td>
+    
+      </tr>
+     
+      <tbody *ngIf="this.profil=='Teacher'">
+        <tr *ngFor="let u of allbyprof">
+            <th>{{u?.typeDisc}}</th>
+            <td>{{u?.user?.email}}</td>
+            <td>{{u?.eleve?.email}}</td>
+        
+        
+        </tr>
+       
+      </tbody>
+  </table>

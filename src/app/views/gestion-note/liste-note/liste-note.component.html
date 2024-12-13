@@ -1,0 +1,69 @@
+<table>
+    <tr>
+      <td><h2>Gestion Note</h2>  </td>
+      <td width="600"></td>
+      <td><button  *ngIf="this.profil=='Teacher'" type="button" [routerLink]="['/gestion-Note/add']"  class="btn btn-info">Ajouter Note</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Coefficient</th>
+        <th scope="col">Note</th>
+        <th scope="col">Trimestre</th>
+        <th scope="col">Type de Note</th>
+        <th scope="col">Matiere</th>
+        <th scope="col">Eleve</th>
+        <th scope="col">Professeur</th>
+        
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Admin'">
+      <tr *ngFor="let u of allnote">
+        <th>{{u?.coff}}</th>
+        <td>{{u?.noteValue}}</td>
+        <td>{{u?.trimestre}}</td>
+        <td>{{u?.typeNote}}</td>
+        <td>{{u?.mat?.nom}}</td>
+        <td>{{u?.user?.email}}</td>
+        <td>{{u?.prof?.email}}</td>
+  
+      
+      </tr>
+     
+      <tbody *ngIf="this.profil=='Teacher'">
+        <tr *ngFor="let u of allbyprof">
+          <th>{{u?.coff}}</th>
+          <td>{{u?.noteValue}}</td>
+          <td>{{u?.trimestre}}</td>
+          <td>{{u?.typeNote}}</td>
+          <td>{{u?.mat?.nom}}</td>
+          <td>{{u?.user?.email}}</td>
+          <td>{{u?.prof?.email}}</td>
+    
+        
+        </tr>
+       
+      </tbody>
+    
+      <tbody *ngIf="this.profil=='Eleve'">
+        <tr *ngFor="let u of allbyeleve">
+          <th>{{u?.coff}}</th>
+          <td>{{u?.noteValue}}</td>
+          <td>{{u?.trimestre}}</td>
+          <td>{{u?.typeNote}}</td>
+          <td>{{u?.mat?.nom}}</td>
+          <td>{{u?.user?.email}}</td>
+          <td>{{u?.prof?.email}}</td>
+    
+        
+        </tr>
+       
+      </tbody>
+  
+    </table>

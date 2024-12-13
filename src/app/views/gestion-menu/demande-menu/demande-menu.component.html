@@ -1,0 +1,53 @@
+<table>
+    <tr>
+      <td><h2>Gestion Des Demandes</h2>  </td>
+      <td width="600"></td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Type Menu</th>
+        <th scope="col">Plat Entree</th>
+        <th scope="col">Plat Principale</th>
+        <th scope="col">Dessert</th>
+        <th scope="col">Jour</th>
+        <th scope="col">Date Debut</th>
+        <th scope="col">Date Fin</th>
+        <th scope="col">Utilisateur</th>
+      
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Eleve'">
+      <tr *ngFor="let u of allresparemail">
+        <th>{{u?.menu?.typemenu}}</th>
+        <th>{{u?.menu?.platentree}}</th>
+        <th>{{u?.menu?.platprincipale}}</th>
+        <th>{{u?.menu?.dessert}}</th>
+         <th>{{u?.menu?.nomjour}}</th>
+        <th>{{u?.menu?.datedeb}}</th>
+        <th>{{u?.menu?.datefin}}</th>
+        <th>{{u?.eleve?.email}}</th>
+
+    
+      </tr>
+     
+    </tbody>
+    <tbody *ngIf="this.profil=='Admin'">
+        <tr *ngFor="let u of alla">
+          <th>{{u?.menu?.typemenu}}</th>
+          <th>{{u?.menu?.platentree}}</th>
+          <th>{{u?.menu?.platprincipale}}</th>
+          <th>{{u?.menu?.dessert}}</th>
+           <th>{{u?.menu?.nomjour}}</th>
+          <th>{{u?.menu?.datedeb}}</th>
+          <th>{{u?.menu?.datefin}}</th>
+          <th>{{u?.eleve?.email}}</th>
+  
+      
+        </tr>
+       
+      </tbody>
+  </table>

@@ -1,0 +1,103 @@
+<table>
+    <tr>
+      <td><button  *ngIf="this.profil=='Admin'" type="button" [routerLink]="['/gestion-cours/add']"  class="btn btn-info">Ajouter Cour</button>
+      </td>
+    </tr>
+<br><br>
+<main>
+  
+  <div *ngIf="!pdfSrc" class="container mt-4">
+ 
+    <h2 class="mb-4">Les Cours</h2>
+    <!-- table projets-->
+    <table class="table table-bordered table-hover" style="width: 122%; table-layout: fixed;">
+      <thead>
+        <tr>
+           <th >Classe </th> 
+           <th >Nom du Cour</th>
+           <th >Cour</th>
+           <th >Email prof</th>
+
+        </tr>
+      </thead>
+      <tbody *ngIf="this.profil=='Admin'">
+          <tr *ngFor="let u of allcours ">
+            <td>{{u?.classe?.nomclasse}}</td>
+            <td>{{u?.nomcour}}</td>
+
+            <th><a (click)="loadPdf(u.id)">Afficher Cour</a></th>
+            <td>{{u?.user?.email}}</td>
+
+          </tr>
+      </tbody>
+      <tbody *ngIf="this.profil=='Eleve'">
+          <tr *ngFor="let u of allbyeleve ">
+            <td>{{u?.classe?.nomclasse}}</td>
+            <td>{{u?.nomcour}}</td>
+
+            <th><a (click)="loadPdf(u.id)">Afficher Cour</a></th>
+            <td>{{u?.user?.email}}</td>
+
+          </tr>
+      </tbody>
+      <tbody *ngIf="this.profil=='Teacher'">
+        <tr *ngFor="let u of allbyprof ">
+          <td>{{u?.classe?.nomclasse}}</td>
+          <td>{{u?.nomcour}}</td>
+
+          <th><a (click)="loadPdf(u.id)">Afficher Cour</a></th>
+          <td>{{u?.user?.email}}</td>
+
+        </tr>
+    </tbody>
+
+    </table>
+    
+  </div>
+
+
+  <div *ngIf="pdfSrc">
+    <button type="button"(click)="refrech()" class="btn btn-warning">Retour</button>
+
+    <iframe [src]="pdfSrc" width="100%" height="600px"></iframe>
+
+  </div>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  
+  <style>
+    tr:hover {
+      background-color: #c26802;
+    }
+    .archive {
+      opacity: 0.5;
+    }
+    .logout-btn {
+            background-color: #11a09a  ; 
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 4px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; 
+        }
+
+        
+        .logout-btn:hover {
+            background-color: #FF8C00; 
+        }
+        
+  </style>
+</main> 
+<br> <br>

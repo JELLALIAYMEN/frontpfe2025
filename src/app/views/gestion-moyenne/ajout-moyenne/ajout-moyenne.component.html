@@ -1,0 +1,155 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="moyform">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Eleve</label>
+  
+                      <!-- Input -->
+                      <select
+                      type="number"
+                      class="form-control"
+                      formControlName="emailel">
+                      <option *ngFor="let u of filteredUsers" [value]="u.id">{{u.email}}</option>
+                    </select>
+
+
+
+
+
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      moyform.get('emailel')?.touched &&
+                        !moyform.get('emailel')?.valid">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Moyenne</label>
+    
+                        <!-- Input -->
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="moyennevalue">
+
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    moyform.get('moyennevalue')?.touched &&
+      !moyform.get('moyennevalue')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Type Note</label>
+  
+                      <!-- Input -->
+                      <select
+                      type="text"
+                      class="form-control"
+                      formControlName="moyenneType">
+                      <option value="moyenneTrimestrielle1">moyenneTrimestrielle1</option>
+                      <option value="moyenneTrimestrielle2">moyenneTrimestrielle2</option>
+                      <option value="moyenneTrimestrielle3">moyenneTrimestrielle3</option>
+                      <option value="moyenneAnnuelle">moyenneAnnuelle</option>
+                      <option value="moyenneMatiere">moyenneMatiere</option>
+
+                    </select>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        moyform.get('moyenneType')?.touched &&
+                          !moyform.get('moyenneType')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>  
+                    </div>
+                  
+                  
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Trimestre</label>
+    
+                        <!-- Input -->
+                        <select
+                        type="text"
+                        class="form-control"
+                        formControlName="trimestre">
+                        <option value="Trimestre1">Trimestre1</option>
+                        <option value="Trimestre1">Trimestre2</option>
+                        <option value="Trimestre1">Trimestre3</option>
+  
+                      </select>
+                     <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          moyform.get('trimestre')?.touched &&
+                            !moyform.get('trimestre')?.valid
+                          "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                        
+                        
+                      </div>
+                  </div>
+          
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,61 @@
+<table>
+    <tr>
+      <td><h2>Gestion Moyenne</h2>  </td>
+      <td width="600"></td>
+      <td><button  *ngIf="this.profil=='Admin'" type="button" [routerLink]="['/gestion-Moyenne/add']"  class="btn btn-info">Ajouter Moyenne</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Type moyenne</th>
+        <th scope="col">Moyenne</th>
+        <th scope="col">Trimestre</th>
+        <th scope="col">Eleve</th>
+        
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody *ngIf="this.profil=='Admin'">
+      <tr *ngFor="let u of allmoy">
+        <th>{{u?.moyenneType}}</th>
+        <td>{{u?.moyennevalue}}</td>
+        <td>{{u?.trimestre}}</td>
+    
+        <td>{{u?.user?.email}}</td>
+    
+      
+      </tr>
+     </tbody>
+
+      <tbody *ngIf="this.profil=='Teacher'">
+        <tr *ngFor="let u of allmoy">
+            <th>{{u?.moyenneType}}</th>
+            <td>{{u?.moyennevalue}}</td>
+            <td>{{u?.trimestre}}</td>
+        
+            <td>{{u?.user?.email}}</td>
+        
+          
+          </tr>
+           
+      </tbody>
+    
+      <tbody *ngIf="this.profil=='Eleve'">
+      <tr *ngFor="let u of allbyeleve">
+        <th>{{u?.moyenneType}}</th>
+        <td>{{u?.moyennevalue}}</td>
+        <td>{{u?.trimestre}}</td>
+    
+        <td>{{u?.user?.email}}</td>
+    
+      
+      </tr>
+       
+      </tbody>
+  
+    </table>

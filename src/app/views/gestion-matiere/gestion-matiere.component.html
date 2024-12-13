@@ -1,0 +1,29 @@
+<table>
+    <tr>
+      <td><h2>Gestion Matiere</h2>  </td>
+      <td width="600"></td>
+      <td><a type="button" [routerLink]="['/ajout-matiere']"  class="btn btn-info">Ajouter Matiere</a>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">coefficient</th>
+      
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allmat">
+        <th>{{u?.nom}}</th>
+        <th>{{u?.coefficient}}</th>
+        <td><a [routerLink]="['../modif-matiere',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+
+  
+      </tr>
+     
+    </tbody>
+  </table>

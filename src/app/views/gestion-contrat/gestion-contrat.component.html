@@ -1,0 +1,37 @@
+<table>
+    <tr>
+      <td><h2>Gestion Contrat</h2>  </td>
+      <td width="600"></td>
+      <td><button type="button" [routerLink]="['/gestion-contrat/add']"  class="btn btn-info">Ajouter Contrat</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Type</th>
+        <th scope="col">Date de Contrat</th>
+        <th scope="col">Durée de Contrat</th>
+        <th scope="col">Nature</th>
+
+        <th scope="col">N° Licence de joueur</th>
+      
+
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allcontrat">
+        <th>{{u?.nom}}</th>
+        <td>{{u?.type}}</td>
+        <td>{{u?.date}}</td>
+        <td>{{u?.dure}}</td>
+        <td>{{u?.nature}}</td>
+        <td>{{u?.joueur?.nlicence}}</td>
+  
+      </tr>
+     
+    </tbody>
+  </table>

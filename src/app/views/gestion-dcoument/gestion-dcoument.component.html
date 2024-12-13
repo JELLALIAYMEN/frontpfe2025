@@ -1,0 +1,31 @@
+<table>
+    <tr>
+      <td><h2>Gestion Document</h2>  </td>
+      <td width="600"></td>
+      <td><button type="button" [routerLink]="['/gestion-document/add']"  class="btn btn-info">Ajouter Joueur</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Date</th>
+        <th scope="col">Joueur</th>
+        <th scope="col">Affichage</th>
+       
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of alldoc">
+        <th>{{u?.type}}</th>
+        <td>{{u?.date}}</td>
+        <td>{{u?.joueur?.nlicence}}</td>
+        <td><a [routerLink]="['detail',{id:u.id}]"><button type="button" class="btn btn-warning">Affichage</button></a></td>
+  
+      </tr>
+     
+    </tbody>
+  </table>

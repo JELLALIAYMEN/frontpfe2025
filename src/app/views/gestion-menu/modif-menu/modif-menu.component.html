@@ -1,0 +1,183 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="meuform">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Type Menu</label>
+  
+                      <!-- Input -->
+                      <select
+                        type="text"
+                        class="form-control"
+                        formControlName="typemenu">
+                    <option value="Apporter">Apporter</option>    
+                    <option value="Reserver">Reserver</option>    
+
+                </select>
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      meuform.get('typemenu')?.touched &&
+                        !meuform.get('typemenu')?.valid
+                      ">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Plat Entree</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="platentree"
+    />
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    meuform.get('platentree')?.touched &&
+      !meuform.get('platentree')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Plat Principale</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="platprincipale" />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        meuform.get('platprincipale')?.touched &&
+                          !meuform.get('platprincipale')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>  
+                    </div>
+                  
+                  
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Desssert</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="dessert" />
+                          <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          meuform.get('dessert')?.touched &&
+                            !meuform.get('dessert')?.valid "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                          
+                      </div>
+                    
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Jour</label>
+  
+                      <!-- Input -->
+                      <select
+                        type="text"
+                        class="form-control"
+                        formControlName="nomjour">
+                    <option value="Lundi">Lundi</option>
+
+                    <option value="Mardi">Mardi</option>
+                    <option value="Mercredi">Mercredi</option>
+                    <option value="jeudi">jeudi</option>
+                    <option value="Vendredi">Vendredi</option>
+                    <option value="Samedi">Samedi</option>
+                </select>
+
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        meuform.get('nomjour')?.touched &&
+                          !meuform.get('nomjour')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      
+                    </div>
+                   
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Date debut</label>
+                        <input type="date" class="form-control" formControlName="datedeb">
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6">
+                                  <label class="form-label">Date fin</label>
+                                  <input type="date" class="form-control" formControlName="datefin" placeholder="Entrez le libelle">
+                              </div>
+                              
+                             
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    Modifier
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+<table>
+    <tr>
+      <td><h2>Gestion Classes</h2>  </td>
+      <td width="600"></td>
+      <td><a type="button" [routerLink]="['/ajout-classe']"  class="btn btn-info">Ajouter Classe</a>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+      
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allclasse">
+        <th>{{u?.nomclasse}}</th>
+        <td><a [routerLink]="['../modif-classe',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+
+  
+      </tr>
+     
+    </tbody>
+  </table>

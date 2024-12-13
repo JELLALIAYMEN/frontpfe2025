@@ -1,0 +1,115 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="courform">
+                <div
+                  class="contact"
+                 >
+                
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom du Cour</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nomcour" />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        courform.get('nomcour')?.touched &&
+                          !courform.get('nomcour')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>  
+                    </div>
+                  
+                  
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Classe</label>
+    
+                        <!-- Input -->
+                        <select
+                        type="text"
+                        class="form-control"
+                        formControlName="nomclasse">
+                        <option *ngFor="let c of allclasse" [value]="c.nomclasse">{{c.nomclasse}}</option>
+                      </select>
+                    
+                      <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          courform.get('nomclasse')?.touched &&
+                            !courform.get('nomclasse')?.valid "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                          
+                      </div>
+                    
+                  
+                  </div>
+               
+
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Prof</label>
+  
+                      <!-- Input -->
+                      <div class="form-outline mb-4">
+                        <input id="file-upload" type="file" name="fileUpload" accept="*" (change)="onFileChanged($event)" />
+                      </div>
+                      
+                    </div>
+               
+                            
+                  </div>
+                
+           
+               
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

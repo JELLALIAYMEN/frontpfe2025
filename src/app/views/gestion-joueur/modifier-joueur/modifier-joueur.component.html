@@ -1,0 +1,193 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="joueurForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+                        [(ngModel)]="joueur.nom"
+
+                      />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Prenom</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="joueur.prenom"
+
+                          formControlName="prenom"
+  
+                        />
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Date de naissance</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="date"
+                        class="form-control"
+                        [(ngModel)]="joueur.datenaissance"
+
+                        formControlName="datenaissance"
+
+                      />
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Téléphone</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="joueur.telephone"
+
+                          formControlName="telephone"
+  
+                        />
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Poste</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="joueur.poste"
+
+                        formControlName="poste"/>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Salaire</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="joueur.salaire"
+
+                        formControlName="salaire"/>
+                        <!-- Input -->
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Email</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="joueur.email"
+
+                        formControlName="email"/>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Prime</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="joueur.prime"
+
+                        formControlName="prime"/>
+                    
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Catégorie : {{joueur.categorie}}</label>
+                        <select
+                        class="form-control"
+                        formControlName="categorie">
+                        <option value="Ecoles">Ecoles</option>
+                      <option value="Minimes">Minimes</option>
+                      <option value="Cadets">Cadets</option>
+                      <option value="Juniors">Juniors</option>
+                      <option value="Espoirs">Espoirs</option>
+                      <option value="Seniors">Seniors</option>
+
+                    </select>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">N° Licence</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="joueur.nlicence"
+
+                        formControlName="nlicence"/>
+                    
+                    </div>
+                  </div>
+                
+               
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()" [disabled]=" joueurForm.invalid">
+                    Modifier
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,209 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="notform">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Eleve</label>
+  
+                      <!-- Input -->
+                      <select
+                      type="number"
+                      class="form-control"
+                      formControlName="emailel">
+                      <option *ngFor="let u of filteredUsers" [value]="u.id">{{u.email}}</option>
+                    </select>
+
+
+
+
+
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      notform.get('emailel')?.touched &&
+                        !notform.get('emailel')?.valid">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Matiére</label>
+    
+                        <!-- Input -->
+                        <select
+                        type="text"
+                        class="form-control"
+                        formControlName="nommat">
+                        <option *ngFor="let m of allmat" [value]="m.id">{{m.nom}}</option>
+                      </select>
+
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    notform.get('nommat')?.touched &&
+      !notform.get('nommat')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Type Note</label>
+  
+                      <!-- Input -->
+                      <select
+                      type="text"
+                      class="form-control"
+                      formControlName="typeNote">
+                      <option value="NOTE_CONTROLE_CONTINUE">NOTE_CONTROLE_CONTINUE</option>
+                      <option value="NOTE_EXAMEN_CONTROLE1">NOTE_EXAMEN_CONTROLE1</option>
+                      <option value="NOTE_EXAMEN_CONTROLE2">NOTE_EXAMEN_CONTROLE2</option>
+                      <option value="NOTE_EXAMEN_SYNTHÈSE">NOTE_EXAMEN_SYNTHÈSE</option>
+                      <option value="NOTE_TP">NOTE_TP</option>
+
+                    </select>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        notform.get('typeNote')?.touched &&
+                          !notform.get('typeNote')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>  
+                    </div>
+                  
+                  
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Note</label>
+    
+                        <!-- Input -->
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="noteValue">
+                        
+                    
+                      <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          notform.get('noteValue')?.touched &&
+                            !notform.get('noteValue')?.valid "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                          
+                      </div>
+                    
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Trimestre</label>
+  
+                      <!-- Input -->
+                      <select
+                      type="text"
+                      class="form-control"
+                      formControlName="trimestre">
+                      <option value="Trimestre1">Trimestre1</option>
+                      <option value="Trimestre1">Trimestre2</option>
+                      <option value="Trimestre1">Trimestre3</option>
+
+                    </select>
+                   <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        notform.get('trimestre')?.touched &&
+                          !notform.get('trimestre')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Coefficient
+                            
+                        </label>
+    
+                        <!-- Input -->
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="coff">
+                       
+                     <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          notform.get('coff')?.touched &&
+                            !notform.get('coff')?.valid
+                          "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                        
+                        
+                      </div>
+                     
+                  </div>
+
+
+               
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

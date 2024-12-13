@@ -1,0 +1,47 @@
+<table>
+    <tr>
+      <td><h2>Gestion Menu</h2>  </td>
+      <td width="600"></td>
+      <td><a [routerLink]="['../les-demandes']" *ngIf="this.profil=='Eleve'" type="button" class="btn btn-dark">Mes Demandes de Réservation</a>
+      </td>
+
+      <td><a  [routerLink]="['../les-demandes']" *ngIf="this.profil=='Admin'" type="button" class="btn btn-dark">Les Demandes de Réservations</a>
+      </td>
+      <td width="50"></td>
+      <td><a  *ngIf="this.profil=='Admin'" type="button" [routerLink]="['add']"  class="btn btn-info">Ajouter Menu</a>
+      </td>
+
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Type Menu</th>
+        <th scope="col">Plat Entree</th>
+        <th scope="col">Plat Principale</th>
+        <th scope="col">Dessert</th>
+        <th scope="col">Jour</th>
+        <th scope="col">Date Debut</th>
+        <th scope="col">Date Fin</th>
+      
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allmenu">
+        <th>{{u?.typemenu}}</th>
+        <th>{{u?.platentree}}</th>
+        <th>{{u?.platprincipale}}</th>
+        <th>{{u?.dessert}}</th>
+         <th>{{u?.nomjour}}</th>
+        <th>{{u?.datedeb}}</th>
+        <th>{{u?.datefin}}</th>
+
+        <td *ngIf="this.profil=='Admin'"><a [routerLink]="['modif',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+        <td *ngIf="this.profil=='Eleve'"><button (click)="reservation(u.id)" type="button" class="btn btn-success">Demande Menu</button></td>
+  
+      </tr>
+     
+    </tbody>
+  </table>

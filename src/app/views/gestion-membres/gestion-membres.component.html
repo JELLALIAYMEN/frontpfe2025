@@ -1,0 +1,43 @@
+<table>
+    <tr>
+      <td><h2>Gestion Membres</h2>  </td>
+      <td width="600"></td>
+      <td><button type="button" [routerLink]="['/gestion-membre/add']"  class="btn btn-info">Ajouter Membre</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Date Création</th>
+        <th scope="col">Poste</th>
+        <th scope="col">Type</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Email</th>
+        <th scope="col">Tel</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th>
+
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allmembre">
+        <th>{{u?.nom}}</th>
+        <td>{{u?.datedenaissance}}</td>
+        <td>{{u?.datedenaissance}}</td>
+        <td>{{u?.poste}}</td>
+        <td>{{u?.type}}</td>
+        <td>{{u?.ville}}</td>
+        <td>{{u?.email}}</td>
+        <td>{{u?.tel}}</td>
+        <td><a [routerLink]="['modifier',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+        <td><button class="btn btn-danger" (click)="delete(u.id)">Supprimer</button></td>
+
+      </tr>
+     
+    </tbody>
+  </table>

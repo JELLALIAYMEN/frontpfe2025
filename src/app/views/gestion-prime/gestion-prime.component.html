@@ -1,0 +1,35 @@
+<table>
+    <tr>
+      <td><h2>Gestion Prime</h2>  </td>
+      <td width="600"></td>
+      <td><button type="button" [routerLink]="['/gestion-prime/add']"  class="btn btn-info">Calculer Prime</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">N° Licence de Joueur</th>
+        <th scope="col">Prime de base</th>
+        <th scope="col">Nombre partie Equipe</th>
+        <th scope="col">Nombre partie  Joueur</th>
+        <th scope="col">Prime final</th>
+     
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allprime">
+        <th>{{u?.date}}</th>
+        <td>{{u?.joueur?.nlicence}}</td>
+        <td>{{u?.joueur?.prime}}</td>
+        <td>{{u?.nbrpartie}}</td>
+        <td>{{u?.nbrpartij}}</td>
+       <td>{{u?.primefinal}}</td>
+        
+      </tr>
+     
+    </tbody>
+  </table>

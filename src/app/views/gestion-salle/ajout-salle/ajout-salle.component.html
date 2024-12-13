@@ -1,0 +1,97 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="salleForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom De Salle</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nomdesalle"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      salleForm.get('nomdesalle')?.touched &&
+                        !salleForm.get('nomdesalle')?.valid
+                      ">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Departement</label>
+    
+                        <!-- Input -->
+                        <select
+                          type="text"
+                          class="form-control"
+                          formControlName="departement"
+    >
+    <option *ngFor="let d of dep" [value]="d.nom">{{d.nom}}</option>
+</select>
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    salleForm.get('departement')?.touched &&
+      !salleForm.get('departement')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                 
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()"[disabled]=" salleForm.invalid">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,239 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="membreForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+
+                      />
+
+                      <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('nom')?.touched &&
+                          !membreForm.get('nom')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Adresse</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="adresse"
+  
+                        />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('adresse')?.touched &&
+                          !membreForm.get('adresse')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Code Postale</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="codepostale"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      membreForm.get('codepostale')?.touched &&
+                        !membreForm.get('codepostale')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Date de naissance</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="date"
+                          class="form-control"
+                          formControlName="datedenaissance"/>
+                          <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          membreForm.get('datedenaissance')?.touched &&
+                            !membreForm.get('datedenaissance')?.valid
+                          "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                      
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Poste</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="poste"/>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('poste')?.touched &&
+                          !membreForm.get('poste')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Type</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="type"/>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('type')?.touched &&
+                          !membreForm.get('type')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                        <!-- Input -->
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Ville</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="ville"/>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('ville')?.touched &&
+                          !membreForm.get('ville')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Email</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="email"/>
+                        <!-- Input -->
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('email')?.touched &&
+                          !membreForm.get('email')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Téléphone</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="tel"/>
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        membreForm.get('tel')?.touched &&
+                          !membreForm.get('tel')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                    
+                    </div>
+                   
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()" [disabled]=" membreForm.invalid">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

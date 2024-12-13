@@ -1,0 +1,181 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="userForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      userForm.get('nom')?.touched &&
+                        !userForm.get('nom')?.valid
+                      ">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Prenom</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="prenom"
+    />
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    userForm.get('prenom')?.touched &&
+      !userForm.get('prenom')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Email</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="email" />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        userForm.get('email')?.touched &&
+                          !userForm.get('email')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>  
+                    </div>
+                  
+                  
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Login</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="login" />
+                          <div
+                          class="invalid-feedback d-block"
+                          *ngIf="
+                          userForm.get('login')?.touched &&
+                            !userForm.get('login')?.valid "
+                        >
+                          Ceci est un champ obligatoire.
+                        </div>
+                          
+                      </div>
+                    
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Mot de passe</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="password"
+                        class="form-control"
+                        formControlName="password" />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        userForm.get('password')?.touched &&
+                          !userForm.get('password')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      
+                    </div>
+                   
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Profil</label>
+                        <select class="form-control" formControlName="profil" (change)="onProfilChange($event)">
+                            <option value="Admin">Admin</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Eleve">Eleve</option>
+                            <option value="Parent">Parent</option>
+
+                        </select>
+                        <!-- Input -->
+                                </div>
+                              
+                              <div *ngIf="isEleveSelected2 && !isEleveSelected " class="form-group col-md-6 col-lg-6">
+                                  <label class="form-label">Classe</label>
+                                  <select type="text" class="form-control" formControlName="nomclasse" placeholder="Entrez la classe">
+                                    <option *ngFor="let u of allclasse" [value]="u.nomclasse">{{u.nomclasse}}</option>
+                                  </select>
+
+                              </div>
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

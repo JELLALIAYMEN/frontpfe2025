@@ -1,0 +1,30 @@
+<table>
+    <tr>
+      <td><h2>Affectation Eleve</h2>  </td>
+      <td width="600"></td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Affecter</th>
+        
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of filteredUsers">
+        <th>{{u?.nom}}</th>
+        <td>{{u?.prenom}}</td>
+        <td>{{u?.email}}</td>
+        <button (click)="affecter(u.email)" type="button" class="btn btn-info">Affecter</button>
+
+  
+      </tr>
+     
+    </tbody>
+  </table>

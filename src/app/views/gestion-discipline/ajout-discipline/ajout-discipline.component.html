@@ -1,0 +1,100 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="disciform">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Type Discipline</label>
+  
+                      <!-- Input -->
+                      <select
+                        type="text"
+                        class="form-control"
+                        formControlName="typeDisc">
+                    <option value="Retart">Retart</option>    
+                    <option value="Exclus">Exclus</option>    
+
+                    <option value="Eliminé">Eliminé</option>    
+
+                </select>
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      disciform.get('typeDisc')?.touched &&
+                        !disciform.get('typeDisc')?.valid
+                      ">
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Eleve</label>
+    
+                        <!-- Input -->
+                        <select
+                          type="text"
+                          class="form-control"
+                          formControlName="eleve">
+                          <option *ngFor="let u of filteredUsers" [value]="u.email">{{u.email}}</option>
+
+                        </select>
+    <div
+    class="invalid-feedback d-block"
+    *ngIf="
+    disciform.get('eleve')?.touched &&
+      !disciform.get('eleve')?.valid
+    "
+  >
+    Ceci est un champ obligatoire.
+  </div>
+                      
+  </div>
+                      
+                  </div>
+                
+           
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

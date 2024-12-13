@@ -1,0 +1,30 @@
+<table>
+    <tr>
+      <td><h2>Gestion Salles</h2>  </td>
+      <td width="600"></td>
+      <td><a type="button" [routerLink]="['/ajout-salle']"  class="btn btn-info">Ajouter Salle</a>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom Salle</th>
+        <th scope="col">Departement</th>
+       
+        
+        
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of allsalle">
+        <th>{{u?.nomdesalle}}</th>
+        <td>{{u?.departement?.nom}}</td>
+        <td><a [routerLink]="['../modif-salle',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+  
+      </tr>
+     
+    </tbody>
+  </table>

@@ -1,0 +1,42 @@
+<table>
+  <tr>
+    <td><h2>Gestion Utilisateur</h2>  </td>
+    <td width="600"></td>
+    <td><button type="button" [routerLink]="['/gestion-utilisateur/add']"  class="btn btn-info">Ajouter Utilisateur</button>
+    </td>
+  </tr>
+</table>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Login</th>
+      <th scope="col">Email</th>
+      <th scope="col">Profil</th>
+      <th scope="col">Libelle</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Affecter</th>
+
+      
+      
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of alluser">
+      <th>{{u?.nom}}</th>
+      <td>{{u?.prenom}}</td>
+      <td>{{u?.login}}</td>
+      <td>{{u?.email}}</td>
+      <td>{{u?.profil}}</td>
+      <td>{{u?.libelle}}</td>
+
+      <td><a [routerLink]="['modifier',{id:u.id}]"><button  class="btn btn-secondary">modifier</button> </a></td>  
+      <td *ngIf="u.profil=='Parent'"><a [routerLink]="['affecter',{email:u.email}]" type="button" class="btn btn-warning">Affecter</a>
+
+    </tr>
+   
+  </tbody>
+</table>

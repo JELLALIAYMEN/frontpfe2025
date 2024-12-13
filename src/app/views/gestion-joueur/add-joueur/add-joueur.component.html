@@ -1,0 +1,251 @@
+<div class="container-fluid">
+ 
+  
+    <div class="container-lg container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-12 col-xl-12 form-label-custom">
+          <!-- Form -->
+  
+          <div class="row">
+            <div class="col-xl-12">
+             
+              <form  [formGroup]="joueurForm">
+                <div
+                  class="contact"
+                 >
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Nom</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="nom"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('nom')?.touched &&
+                        !joueurForm.get('nom')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Prenom</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="prenom"
+  
+                        />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        joueurForm.get('prenom')?.touched &&
+                          !joueurForm.get('prenom')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Date de naissance</label>
+  
+                      <!-- Input -->
+                      <input
+                        type="date"
+                        class="form-control"
+                        formControlName="datenaissance"
+
+                      />
+                      <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('datedenaissance')?.touched &&
+                        !joueurForm.get('datedenaissance')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Téléphone</label>
+    
+                        <!-- Input -->
+                        <input
+                          type="number"
+                          class="form-control"
+                          formControlName="telephone"
+  
+                        />
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        joueurForm.get('telephone')?.touched &&
+                          !joueurForm.get('telephone')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                      </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Poste</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="poste"/>
+                        <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('poste')?.touched &&
+                        !joueurForm.get('poste')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                        <!-- Label -->
+                        <label class="form-label">Salaire</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="salaire"/>
+                        <!-- Input -->
+                        <div
+                        class="invalid-feedback d-block"
+                        *ngIf="
+                        joueurForm.get('salaire')?.touched &&
+                          !joueurForm.get('salaire')?.valid
+                        "
+                      >
+                        Ceci est un champ obligatoire.
+                      </div>
+                                </div>
+                  
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Email</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        formControlName="email"/>
+                        <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('email')?.touched &&
+                        !joueurForm.get('email')?.valid
+                      "forEa
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Prime</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="prime"/>
+                        <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('prime')?.touched &&
+                        !joueurForm.get('prime')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">Catégorie</label>
+                        <select
+                        class="form-control"
+                        formControlName="categorie">
+                        <option value="Ecoles">Ecoles</option>
+                      <option value="Minimes">Minimes</option>
+                      <option value="Cadets">Cadets</option>
+                      <option value="Juniors">Juniors</option>
+                      <option value="Espoirs">Espoirs</option>
+                      <option value="Seniors">Seniors</option>
+
+                    </select>
+                    
+                    </div>
+                    <div class="form-group col-md-6  col-lg-6">
+                      <!-- Label -->
+                      <label class="form-label">N° Licence</label>
+                        <input
+                        type="number"
+                        class="form-control"
+                        formControlName="nlicence"/>
+                        <div
+                      class="invalid-feedback d-block"
+                      *ngIf="
+                      joueurForm.get('nlicence')?.touched &&
+                        !joueurForm.get('nlicence')?.valid
+                      "
+                    >
+                      Ceci est un champ obligatoire.
+                    </div>
+                    </div>
+                  </div>
+                
+               
+                </div>
+  
+            
+              </form>
+            </div>
+  
+            <div class="col-12 mt-10">
+              <hr class="mt-5">
+              <div class="row align-items-center justify-content-end">
+                <div class="col-auto">
+                  <!-- Button -->
+                  <button
+                    class="btn btn-lg btn-white"
+                    type="reset"
+                  >
+                    Retour
+                  </button>
+                </div>
+  
+                <div class="col-auto">
+                  <button
+                    class="btn btn-lg btn-primary" (click)="ajouter()" [disabled]=" joueurForm.invalid">
+                    ajouter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

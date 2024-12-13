@@ -1,0 +1,81 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form  [formGroup]="loginform" cForm>
+                <h1>Connexion</h1>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="username"  formControlName="email" cFormControl placeholder="Email" />
+                  <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                  loginform.get('email')?.touched &&
+                    !loginform.get('email')?.valid
+                  "
+                >
+                  Ceci est un champ obligatoire.
+                </div>
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                  formControlName="password"
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Mot de passe"
+                    type="password"
+                  />
+                  <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                  loginform.get('password')?.touched &&
+                    !loginform.get('password')?.valid
+                  "
+                >
+                  Ceci est un champ obligatoire.
+                </div>
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton class="px-4" (click)="login()" color="primary" [disabled]="loginform.invalid">
+                      Se Connecter
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <a [routerLink]="['../envoyer-mail']"><button cButton class="px-0" color="link">
+                     Mot de passe oublier ?
+                    </button></a>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <c-card [ngStyle]="{'width.%': 44}" >
+            <c-card-body class="text-center">
+              <br>
+              <img src="../../../../assets/images/logo.png" width="250" height="250">
+           <!--    <div>
+                <h2>Sign up</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <button [active]="true" cButton class="mt-3" color="primary" routerLink="/register">
+                  Register Now!
+                </button>
+              </div> -->
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
