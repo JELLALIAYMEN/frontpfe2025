@@ -21,7 +21,7 @@ constructor(private http : HttpClient,private route: ActivatedRoute){}
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8');
       headers = headers.set("Authorization", 'Bearer ' + user.token);
-      return this.http.get(CONFIG.URL +  "discipline/allbyelleve?email="+localStorage.getItem("email"),{})}
+      return this.http.get(CONFIG.URL +  "discipline/allbyelleve?email="+localStorage.getItem("email-eleve"),{})}
   
       allbyprof() {
         const user = JSON.parse(localStorage.getItem('currentUser')|| '{}');

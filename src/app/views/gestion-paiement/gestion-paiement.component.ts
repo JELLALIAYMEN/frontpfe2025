@@ -13,7 +13,7 @@ export class GestionPaiementComponent {
   profil:any ;
 constructor(private service : PaiemenyService){}
 ngOnInit(){
-  this.email=localStorage.getItem("email");
+  this.email=localStorage.getItem("email-eleve");
   this.profil=localStorage.getItem("profil");
   this.service.allpay().subscribe((res)=>{
     this.allpay=res ; 

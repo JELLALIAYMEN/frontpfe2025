@@ -11,8 +11,12 @@ allmoy:any  ;
 profil:any ; 
 email:any ;
 allbyeleve:any ;
+emaileleve:any ;
+allbyelevebyparent:any ;
 constructor(private service:NoteService){}
 ngOnInit(){
+  this.emaileleve = localStorage.getItem("email-eleve");
+
   this.email=localStorage.getItem("email")
 this.profil=localStorage.getItem("profil")
 this.service.allmoy().subscribe((res)=>{
@@ -21,6 +25,9 @@ this.service.allmoy().subscribe((res)=>{
 })
 this.service.allmoybyuser(this.email).subscribe((res)=>{
   this.allbyeleve=res ; 
+})
+this.service.allmoybyuser(this.emaileleve).subscribe((res)=>{
+  this.allbyelevebyparent=res ; 
 })
 }
 }

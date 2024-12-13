@@ -37,4 +37,14 @@
         </tr>
        
       </tbody>
+      <tbody *ngIf="this.profil=='Parent'">
+        <tr *ngFor="let u of allbyeleve">
+            <th>{{u?.typeDisc}}</th>
+            <td>{{u?.user?.email}}</td>
+            <td>{{u?.eleve?.email}}</td>
+        
+        
+        </tr>
+       
+      </tbody>
   </table>

@@ -1,6 +1,8 @@
-<table>
-    <tr >
-      <td *ngFor="let u of alleleve">{{ u?.eleve?.nom }}</td>
-    </tr>
-  </table>
-  
+
+  <div align="center" *ngFor="let u of alleleve" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ u?.eleve?.nom }} {{ u?.eleve?.prenom }}</h5>
+      <p class="card-text">{{u?.eleve?.email}}</p>
+      <a (click)="eleve(u.eleve.email)" class="btn btn-primary" >Consulter</a>
+    </div>
+  </div>

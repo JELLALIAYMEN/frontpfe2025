@@ -1,7 +1,7 @@
 <div class="mt-5">
     <div class="navbar-nav icons-container">
   
-          <div class="nav-item">
+         <!--  <div class="nav-item">
             <a routerLink="gestion-profil" class="nav-link">
                 &nbsp;&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses" viewBox="0 0 16 16">
@@ -11,7 +11,7 @@
                 <span>Gestion Profil</span>
                 &nbsp;&nbsp;
             </a>
-          </div>
+          </div> -->
           <div *ngIf="this.profil=='Admin'"class="nav-item">
             <a routerLink="gestion-utilisateur" class="nav-link">
                 &nbsp;&nbsp;
@@ -163,7 +163,7 @@
       </div>
 
 
-      <div  class="nav-item">
+      <div *ngIf="this.profil!='Eleve'"  class="nav-item">
         <a routerLink="gestion-Discipline" class="nav-link">
             &nbsp;&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses" viewBox="0 0 16 16">

@@ -31,6 +31,13 @@ constructor(private http : HttpClient,private route: ActivatedRoute){}
     headers = headers.set("Authorization", 'Bearer ' + user.token);
     return this.http.get(CONFIG.URL +  "rec/afficherbyemail?email="+localStorage.getItem("email"),{ headers: headers})}
    
+    afficherbyemailparent() {
+      const user = JSON.parse(localStorage.getItem('currentUser')|| '{}');
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+      headers = headers.set("Authorization", 'Bearer ' + user.token);
+      return this.http.get(CONFIG.URL +  "rec/afficherbyemail?email="+localStorage.getItem("email-eleve"),{ headers: headers})}
+     
    addrec(rec:any) {
     const user = JSON.parse(localStorage.getItem('currentUser')|| '{}');
     let headers = new HttpHeaders();

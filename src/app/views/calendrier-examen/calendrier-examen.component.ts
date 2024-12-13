@@ -12,6 +12,7 @@ export class CalendrierExamenComponent {
   profil:any ;
   email:any ;
   allbuprof:any  ;
+  allemploibyparent:any ;
     constructor(private service: CalendrierService){}
   
   ngOnInit(){
@@ -23,6 +24,16 @@ export class CalendrierExamenComponent {
     this.email=res;
     this.service.afficherbyclasse(this.email.classe.nomclasse).subscribe((res)=>{
       this.allemploibyprof=res ;
+    
+    })
+ 
+
+  })
+
+  this.service.getbyemailparent().subscribe((res)=>{
+    this.email=res;
+    this.service.afficherbyclasse(this.email.classe.nomclasse).subscribe((res)=>{
+      this.allemploibyparent=res ;
     
     })
  

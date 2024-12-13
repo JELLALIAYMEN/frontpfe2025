@@ -14,6 +14,7 @@ affichage=false ;
 recform!:FormGroup ;
 repo:any ;
 id:any ;
+allbyemailparent:any ;
   constructor(private service : ReclamationService){}
 ngOnInit(){
   this.recform = new FormGroup({
@@ -25,6 +26,9 @@ ngOnInit(){
   })
   this.service.afficherbyemail().subscribe((res)=>{
     this.allbyemail=res ; 
+  })
+  this.service.afficherbyemailparent().subscribe((res)=>{
+    this.allbyemailparent=res ;
   })
 }
 rep(id:any){

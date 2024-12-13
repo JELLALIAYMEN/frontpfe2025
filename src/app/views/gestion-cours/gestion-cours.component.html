@@ -40,6 +40,16 @@
 
           </tr>
       </tbody>
+      <tbody *ngIf="this.profil=='Parent'">
+        <tr *ngFor="let u of allbyeleveparent ">
+          <td>{{u?.classe?.nomclasse}}</td>
+          <td>{{u?.nomcour}}</td>
+
+          <th><a (click)="loadPdf(u.id)">Afficher Cour</a></th>
+          <td>{{u?.user?.email}}</td>
+
+        </tr>
+    </tbody>
       <tbody *ngIf="this.profil=='Teacher'">
         <tr *ngFor="let u of allbyprof ">
           <td>{{u?.classe?.nomclasse}}</td>

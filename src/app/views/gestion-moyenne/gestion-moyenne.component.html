@@ -58,4 +58,17 @@
        
       </tbody>
   
+      <tbody *ngIf="this.profil=='Parent' && this.emaileleve!=null">
+        <tr *ngFor="let u of allbyelevebyparent">
+          <th>{{u?.moyenneType}}</th>
+          <td>{{u?.moyennevalue}}</td>
+          <td>{{u?.trimestre}}</td>
+      
+          <td>{{u?.user?.email}}</td>
+      
+        
+        </tr>
+         
+        </tbody>
+    
     </table>

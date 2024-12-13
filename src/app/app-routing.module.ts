@@ -59,6 +59,7 @@ import { GestionDisciplineComponent } from './views/gestion-discipline/gestion-d
 import { AjoutPaiementComponent } from './views/gestion-paiement/ajout-paiement/ajout-paiement.component';
 import { GestionPaiementComponent } from './views/gestion-paiement/gestion-paiement.component';
 import { MesElevesComponent } from './views/mes-eleves/mes-eleves.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -73,7 +74,7 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'dashboard',
+        path: '',
         loadChildren: () =>
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
@@ -235,6 +236,9 @@ const routes: Routes = [
       {path:'gestion-joueur',
       component:GestionJoueurComponent
        },
+       {path:'dashbord',
+        component:DashboardComponent
+         },
        {path:'gestion-joueur/add',
        component:AddJoueurComponent
         },
@@ -320,7 +324,7 @@ const routes: Routes = [
       title: 'Register Page'
     }
   },
-  {path: '**', redirectTo: 'dashboard'}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
