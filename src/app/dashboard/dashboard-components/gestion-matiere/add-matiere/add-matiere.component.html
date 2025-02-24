@@ -1,0 +1,37 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Ajouter une nouvelle matiére</h3>
+    </div>  
+    <form [formGroup]="matiereForm" (ngSubmit)="ajouteMatiere()">
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom de la matiére</mat-label>
+        <input
+            matInput
+            placeholder="Entrez le nom de la matiére"
+            formControlName="nom"
+            required
+        />
+        <mat-error *ngIf="matiereForm.get('nom')?.invalid && matiereForm.get('nom')?.touched">
+            Le nom de la matiére est requis.
+        </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Coeifficient</mat-label>
+        <input
+            matInput
+            placeholder="Entrez le coeifficient"
+            formControlName="coefficient"
+            required
+        />
+        <mat-error *ngIf="matiereForm.get('coefficient')?.invalid && matiereForm.get('coefficient')?.touched">
+            Le coefficient de la matiére est requis.
+        </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="matiereForm.invalid">
+        Ajouter
+        </button>
+    
+    </form>
+</mat-dialog-content>

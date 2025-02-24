@@ -1,0 +1,56 @@
+<mat-dialog-content class="mat-typography form-container">
+  <h3>Ajouter un nouveau enseignant</h3>
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Entrez le nom" formControlName="nom" required>
+      <mat-error *ngIf="nom?.invalid && nom?.touched">Le nom est requis.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Entrez le prénom" formControlName="prenom" required>
+      <mat-error *ngIf="prenom?.invalid && prenom?.touched">Le prénom est requis.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput placeholder="Entrez le login" formControlName="login" required>
+      <mat-error *ngIf="login?.invalid && login?.touched">Le login est requis.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Entrez l'email" formControlName="email" required>
+      <mat-error *ngIf="email?.invalid && email?.touched">
+        <span *ngIf="email?.errors?.['required']">L'email est requis.</span>
+        <span *ngIf="email?.errors?.['email']">L'email n'est pas valide.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" placeholder="Entrez le mot de passe" formControlName="password" required>
+      <mat-error *ngIf="password?.invalid && password?.touched">
+        <span *ngIf="password?.errors?.['required']">Le mot de passe est requis.</span>
+        <span *ngIf="password?.errors?.['minlength']">Au moins 8 caractères requis.</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Libellé</mat-label>
+      <input matInput placeholder="Entrez le libellé" formControlName="libelle" required>
+      <mat-error *ngIf="libelle?.invalid && libelle?.touched">Le libellé est requis.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Profil</mat-label>
+      <input matInput placeholder="Profil" formControlName="profil" value="enseignant" readonly>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Ajouter</button>
+      <button mat-button mat-dialog-close (click)="cancel()" color="warn">Annuler</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

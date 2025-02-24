@@ -1,0 +1,39 @@
+<button mat-raised-button class="mb-2 me-2" color="primary" (click)="openAddEleve()">
+    <i class="fa-solid fa-plus me-1"></i>
+    Ajouter Élève
+</button>
+<div class="container">
+    <h2>Gestion des Élèves</h2>
+    
+    <!-- Barre de recherche et filtres -->
+<div class="filters">
+  <input type="text" class="search-bar" placeholder="Rechercher un élève...">
+
+  <select class="filter-dropdown" [(ngModel)]="selectedClasse" (change)="filterByClasse()">
+    <option value="">Filtrer par classe</option>
+    <option *ngFor="let classe of classes" [value]="classe.nomclasse">{{classe.nomclasse}}</option>
+  </select>
+</div>
+
+
+    <!-- Tableau -->
+    <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-2">Nom complet</div>
+          <div class="col col-3">Classe</div>
+          <div class="col col-4">Actions</div>
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <li *ngFor="let user of filtredUsers" class="table-row">
+          <div class="col col-2" data-label="Nom">{{ user.nom }} {{ user.prenom }}</div>
+          <div class="col col-3" data-label="Classe" *ngIf="user?.classe?.nomclasse">{{ user.classe.nomclasse }}</div>
+          <div class="col col-4" data-label="Actions">
+            <button class="action-btn details-btn" (click)="detailsEleve(user)">Détails</button>
+            <button class="action-btn edit-btn" (click)="modifierEleve(user)">Modifier</button>
+            <button class="action-btn delete-btn" (click)="openConfirmationDialog(user.id)">Supprimer</button>
+            <button class="action-btn moyenne-btn" (click)="redirectMoyenne(user.id)">Moyenne et note</button>
+          </div>
+        </li>
+    </ul>      
+</div>

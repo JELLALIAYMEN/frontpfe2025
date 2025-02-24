@@ -1,0 +1,57 @@
+/* Style global pour le dialog de détails */
+.dialog-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.dialog-header h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espacement entre les champs */
+  padding: 16px;
+}
+
+.detail-field {
+  display: flex;
+  flex-direction: column; /* Utilisation de flex-direction column pour séparer le label et la valeur */
+}
+
+mat-label {
+  font-weight: bold;
+  color: #1d1d5c;
+  margin-bottom: 4px; /* Espacement entre le label et la valeur */
+}
+
+span {
+  font-size: 1rem;
+  color: #555; /* Couleur de texte pour les valeurs */
+}
+
+/* Style pour les actions du dialog */
+mat-dialog-actions.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+mat-dialog-actions .mat-button {
+  color: #1d1d5c; /* Couleur douce pour le bouton "Fermer" */
+}
+
+/* Responsive design pour petits écrans */
+@media (max-width: 600px) {
+  .dialog-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .details-container {
+    padding: 8px; /* Réduction du padding pour les petits écrans */
+  }
+}

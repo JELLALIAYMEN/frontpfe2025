@@ -1,0 +1,12 @@
+<!-- Banner section -->
+<div class="banner">
+  <img src="assets/images/collége.jpg" alt="Banner Image">
+  <h1 class="banner-title">Collége privé Les Leaders </h1>
+</div>
+  
+<div class="dashboard">
+    <div class="card" *ngFor="let item of teacherMenuItems" (click)="navigateTo(item.route)">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+  </div>

@@ -1,0 +1,61 @@
+<body id="landing">
+  <header class="navbar-light header-static bg-transparent">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="light-mode-item navbar-brand-item" src="assets/images/logo.png" alt="logo" style="width: 50%; height: 50%;">
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <div class="cont">
+        <div class="form sign-in">
+          <h2>Welcome back</h2>
+          <form (submit)="login(); $event.preventDefault()">
+            <!-- Champ Email -->
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" [(ngModel)]="email" name="email" required />
+            </mat-form-field>
+          
+            <!-- Champ Mot de Passe avec icône pour afficher/masquer -->
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput 
+                     [type]="hide ? 'password' : 'text'" 
+                     [(ngModel)]="password" 
+                     name="password" 
+                     required />
+              <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+            </mat-form-field>
+          
+            <!-- Lien mot de passe oublié -->
+            <p class="forgot-pass">Forgot password?</p>
+          
+            <!-- Bouton de soumission -->
+            <button type="submit" class="submit">Sign In</button>
+          
+            <!-- Message d'erreur ou de succès -->
+            <div *ngIf="message" class="message">
+              <p>{{ message }}</p>
+            </div>
+          </form>
+          
+        </div>
+        <div class="sub-cont">
+          <div class="img">
+            <div class="img__text m--up">
+              <h2>New here?</h2>
+              <p>Sign up and discover great amount of new opportunities!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="https://codepen.io/suez/pen/XWyBpre" target="_blank" class="link-footer">New 2025 Version</a>
+    </section>
+  </main>
+</body>

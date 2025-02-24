@@ -1,0 +1,34 @@
+<div>
+  <!-- Select class -->
+  <mat-form-field appearance="outline">
+    <mat-label>Sélectionnez une classe</mat-label>
+    <mat-select [(value)]="selectedClasse" (selectionChange)="applyFilter()">
+      <mat-option [value]="">Toutes les classes</mat-option>
+      <mat-option *ngFor="let classe of classes" [value]="classe.nomclasse">
+        {{ classe.nomclasse }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Nom du jour</div>
+      <div class="col col-1">Date</div>
+      <div class="col col-1">Classe</div>
+      <div class="col col-1">Matière</div>
+      <div class="col col-1">Trimestre</div>
+      <div class="col col-1">Actions</div>
+    </li>
+  
+    <!-- Itération sur la liste des utilisateurs -->
+    <li *ngFor="let calendrier of filtredCalendrier">
+      <div class="col col-1">{{ calendrier.nomjour }}</div>
+      <div class="col col-1">{{ calendrier.date }}</div>
+      <div class="col col-1">{{ calendrier.classe.nomclasse}}</div>
+      <div class="col col-1">{{ calendrier.matiere.nom }}</div>
+      <div class="col col-1">{{ calendrier.trimestre }}</div>
+      <div class="col col-1">
+        <button class="action-btn details-btn" (click)="envoyer(calendrier)">Envoyer</button>
+      </div>
+    </li>
+</ul>   

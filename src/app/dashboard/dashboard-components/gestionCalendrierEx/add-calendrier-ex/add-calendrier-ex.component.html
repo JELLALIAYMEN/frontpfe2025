@@ -1,0 +1,111 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Ajouter un calendrier</h3>
+    </div>
+    <div class="loader" *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <form [formGroup]="calendrierForm" (ngSubmit)="ajouterCalendrier()">
+      <!-- Date -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Sélectionnez une date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="calendrierForm.get('date')?.invalid && calendrierForm.get('date')?.touched">
+          La date est requise.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Nom du jour -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom du Jour</mat-label>
+        <mat-select formControlName="nomjour" required>
+          <mat-option *ngFor="let jour of joursDeLaSemaine" [value]="jour">{{ jour }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('nomjour')?.hasError('required')">Le nom du jour est requis</mat-error>
+      </mat-form-field>
+  
+      <!-- Période -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Période</mat-label>
+        <input matInput placeholder="Entrez la période" formControlName="periode" required>
+        <mat-error *ngIf="calendrierForm.get('periode')?.invalid && calendrierForm.get('periode')?.touched">
+          La période est requise.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email du professeur</mat-label>
+        <input type="email" matInput placeholder="Entrez l'email" formControlName="email" required email>
+        <mat-error *ngIf="calendrierForm.get('email')?.invalid && calendrierForm.get('email')?.touched">
+          <span *ngIf="calendrierForm.get('email')?.errors?.['required']">L'email est requis.</span>
+          <span *ngIf="calendrierForm.get('email')?.errors?.['email']">L'email n'est pas valide.</span>
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Salle</mat-label>
+        <mat-select formControlName="salles" required>
+          <mat-option *ngFor="let salle of salles" [value]="salle.nomdesalle">{{ salle.nomdesalle }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('salles')?.invalid && calendrierForm.get('salles')?.touched">
+          La salle  est requise.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Matière</mat-label>
+        <mat-select formControlName="matiere" required>
+          <mat-option *ngFor="let matiere of matieres" [value]="matiere.nom">{{ matiere.nom }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('matiere')?.invalid && calendrierForm.get('matiere')?.touched">
+          La matiére est requise.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Classe -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Classe</mat-label>
+        <mat-select formControlName="classe" required>
+          <mat-option *ngFor="let classe of classes" [value]="classe.nomclasse">{{ classe.nomclasse }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('classe')?.invalid && calendrierForm.get('classe')?.touched">
+          La classe est requise.
+        </mat-error>
+      </mat-form-field>
+  
+          <!-- Type de calendrier -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Type de calendrier</mat-label>
+        <mat-select formControlName="typecalendrier" required>
+          <mat-option [value]="'synthese'">Synthèse</mat-option>
+          <mat-option [value]="'Controle'">Contrôle</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('typecalendrier')?.invalid && calendrierForm.get('typecalendrier')?.touched">
+          Le type de calendrier est requis.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Trimestre -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Trimestre</mat-label>
+        <mat-select formControlName="t" required>
+          <mat-option [value]="'Trimestre1'">Trimestre 1</mat-option>
+          <mat-option [value]="'Trimestre2'">Trimestre 2</mat-option>
+          <mat-option [value]="'Trimestre3'">Trimestre 3</mat-option>
+        </mat-select>
+        <mat-error *ngIf="calendrierForm.get('t')?.invalid && calendrierForm.get('t')?.touched">
+          Le trimestre est requis.
+        </mat-error>
+      </mat-form-field>
+
+        
+      <div mat-dialog-actions class="action-buttons">
+        <button mat-raised-button color="primary" type="submit" [disabled]="calendrierForm.invalid">Ajouter</button>
+        <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+  

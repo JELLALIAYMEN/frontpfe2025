@@ -1,0 +1,37 @@
+<mat-dialog-content class="mat-typography">
+    <div class="dialog-header">
+      <h3>Détails de la réclamation</h3>
+    </div>
+  
+    <div class="details-container">
+      <div class="detail-field">
+        <mat-label>Elève</mat-label>
+        <span>{{ data.user.nom }} {{ data.user.prenom }}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Enseignant</mat-label>
+        <span>{{ data.destinataire.nom }} {{ data.destinataire.prenom }}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Sujet</mat-label>
+        <span>{{ data.sujet }}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Résultat</mat-label>
+        <span>{{ data.resultat }}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Date</mat-label>
+        <span>{{ data.date }}</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="action-buttons">
+    <button mat-button mat-dialog-close>Fermer</button>
+  </mat-dialog-actions>
+  

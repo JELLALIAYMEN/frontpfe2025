@@ -1,0 +1,44 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Assigner un élève au parent</h3>
+    </div>
+  
+    <form [formGroup]="assignForm" (ngSubmit)="assigner()" class="form-center">
+      <!-- Email de l'élève -->
+      <div class="buttons-container">
+      <mat-form-field appearance="outline" class="full-width form-input">
+        <mat-label>Email de l'élève</mat-label>
+        <input matInput placeholder="Entrez l'email" formControlName="email" required email>
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="email?.invalid && email?.touched">
+          <span *ngIf="email?.errors?.['required']">L'email est requis.</span>
+          <span *ngIf="email?.errors?.['email']">L'email n'est pas valide.</span>
+        </mat-error>
+      </mat-form-field>
+  </div>
+      <!-- Boutons -->
+      <mat-dialog-actions class="action-buttons">
+        <div class="buttons-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="assignForm.invalid" class="action-btn">Ajouter</button>
+          <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()" class="action-btn">Annuler</button>
+        </div>
+      </mat-dialog-actions>
+    </form>
+  
+    <!-- Liste des élèves affectés au parent -->
+    <div *ngIf="mesEleves.length > 0" class="eleves-list">
+      <h4>Mes élèves :</h4>
+      <mat-list>
+        <mat-list-item *ngFor="let eleve of mesEleves" class="eleve-item">
+          <mat-icon mat-list-icon>school</mat-icon>
+          <div mat-line>{{ eleve.eleve.nom }} {{ eleve.eleve.prenom }}</div>
+          <div mat-line>{{ eleve.eleve.email }}</div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  
+    <div *ngIf="mesEleves.length === 0" class="no-eleves">
+      <p>Aucun élève affecté pour ce parent.</p>
+    </div>
+  </mat-dialog-content>
+  

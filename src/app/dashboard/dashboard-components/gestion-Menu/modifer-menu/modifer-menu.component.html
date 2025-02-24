@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Modifier le Menu</h2>
+<mat-dialog-content>
+  <form [formGroup]="menuForm">
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Type de Menu</mat-label>
+        <mat-select formControlName="typemenu" placeholder="Sélectionnez un type de menu">
+          <mat-option *ngFor="let type of typemenuOptions" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Plat d'Entrée</mat-label>
+      <input matInput formControlName="platentree" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Plat Principal</mat-label>
+      <input matInput formControlName="platprincipale" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dessert</mat-label>
+      <input matInput formControlName="dessert" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Jour</mat-label>
+        <mat-select formControlName="nomjour" placeholder="Sélectionnez un jour">
+          <mat-option *ngFor="let jour of joursOptions" [value]="jour">
+            {{ jour }}
+          </mat-option>
+        </mat-select>     
+      </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date de Début</mat-label>
+      <input matInput formControlName="datedeb" type="date" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date de Fin</mat-label>
+      <input matInput formControlName="datefin" type="date" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button color="primary" (click)="onSave()">Sauvegarder</button>
+  <button mat-button (click)="onCancel()">Annuler</button>
+</mat-dialog-actions>

@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Moyennes et notes de {{fullName}}</h2>
+    <h2><strong>Moyenne annuelle:{{moyenneAnnuelle}}</strong></h2>
+  
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Matière</div>
+        <div class="col col-1">Coefficient</div>
+        <div class="col col-1">Moy. Trimestre 1</div>
+        <div class="col col-1">Moy. Trimestre 2</div>
+        <div class="col col-1">Moy. Trimestre 3</div>
+        <div class="col col-1">Actions</div>
+      </li>
+  
+      <li class="table-row" *ngFor="let m of matieres">
+        <div class="col col-1" data-label="Nom">{{ m.nom }}</div>
+        <div class="col col-1" data-label="Coefficient">{{ m.coefficient }}</div>
+        <div class="col col-1" data-label="Trimestre 1">
+          {{ getMoyenneDisplay(m.id, 'Trimestre1') }}
+        </div>
+        <div class="col col-1" data-label="Trimestre 2">
+          {{ getMoyenneDisplay(m.id, 'Trimestre2') }}
+        </div>
+        <div class="col col-1" data-label="Trimestre 3">
+          {{ getMoyenneDisplay(m.id, 'Trimestre3') }}
+        </div>       
+        <div class="col col-1" data-label="Actions">
+          <button mat-raised-button  color="primary" (click)="openNoteDetailsDialog(m.id)">Détails</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,20 @@
+<button mat-raised-button class="mb-2 me-2" color="primary" (click)="openAddMatiere()">
+    <i class="fa-solid fa-plus me-1"></i>
+    Ajouter une matiére
+</button>
+<div class="container">
+    <h2>Gestion des matiéres</h2>
+      <!-- Tableau -->
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-4">Nom</div>
+          <div class="col col-4">Coefficient</div>
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <li *ngFor="let m of matieres" class="table-row">
+          <div class="col col-4" data-label="Nom">{{ m.nom }}</div>
+          <div class="col col-4" data-label="Coefficient">{{ m.coefficient }}</div>
+        </li>
+    </ul>  
+</div>

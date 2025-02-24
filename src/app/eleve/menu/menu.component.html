@@ -1,0 +1,57 @@
+<div class="menu-container">
+  <div class="banner">
+    <img src="assets/images/restaurant.jpg" alt="Banner Image">
+    <h1 class="banner-title">Découvrez votre menu pour aujourd'hui</h1>
+  </div>
+</div>
+
+<div class="menu2-container">
+  <!-- Affichage du Menu du Jour -->
+  <div class="menu-card" *ngIf="menuDuJour && menuDuJour.length > 0">
+    <div class="menu-header">
+      <h3>Menu du Jour</h3>
+    </div>
+    <div class="menu-body">
+      <ul class="menu-items">
+        <li *ngFor="let menu of menuDuJour">
+          <div class="plat-card">
+            <div class="plat-name">Entrée : {{ menu.platentree }}</div>
+            <div class="plat-name">Plat principal : {{ menu.platprincipale }}</div>
+            <div class="plat-name">Dessert : {{ menu.dessert }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="menu-footer">
+      <button mat-button class="btn-see-week" (click)="toggleMenuSemaine()">Voir le Menu de la Semaine</button>
+    </div>
+  </div>
+
+  <!-- Affichage du Menu de la Semaine -->
+  <div *ngIf="showMenuSemaine && menuSemaine && menuSemaine.length > 0" class="weekly-menu">
+    <div class="menu-header">
+      <h3>Menu de la Semaine</h3>
+    </div>
+    <div class="menu-body">
+      <div class="weekly-menu-list">
+        <div *ngFor="let jour of menuSemaine">
+          <h4>{{ jour.nomjour }} ({{ jour.datedeb }} - {{ jour.datefin }})</h4>
+          <ul>
+            <li>
+              <div class="plat-card">
+                <div class="plat-name">Entrée : {{ jour.platentree }}</div>
+                <div class="plat-name">Plat principal : {{ jour.platprincipale }}</div>
+                <div class="plat-name">Dessert : {{ jour.dessert }}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message si aucun menu n'est disponible -->
+  <div *ngIf="menuSemaine && menuSemaine.length === 0" class="empty-state">
+    <p>Pas de menu disponible pour la semaine.</p>
+  </div>
+</div>

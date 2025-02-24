@@ -1,0 +1,32 @@
+<button mat-raised-button class="mb-2 me-2" color="primary" (click)="openAddparent()">
+    <i class="fa-solid fa-plus me-1"></i>
+    Ajouter parent
+</button>
+<div class="container">
+    <h2>Gestion des Parents</h2>
+    <!-- Barre de recherche et filtres -->
+    <div class="filters">
+        <input type="text" class="search-bar" placeholder="Rechercher un parent...">
+    </div>
+
+    <!-- Tableau -->
+    <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-2">Nom</div>
+          <div class="col col-4">E-mail</div>
+          <div class="col col-4">Actions</div>
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <li *ngFor="let user of users" class="table-row">
+          <div class="col col-2" data-label="Nom">{{ user.nom }} {{ user.prenom }}</div>
+          <div class="col col-2" data-label="E-mail">{{user.email}}</div>
+          <div class="col col-4" data-label="Actions">
+            <button class="action-btn details-btn" (click)="detailsParent(user)">Détails</button>
+            <button class="action-btn edit-btn" (click)="modifierParent(user)">Modifier</button>
+            <button class="action-btn delete-btn" (click)="openConfirmationDialog(user.id)">Supprimer</button>
+            <button class="action-btn details-btn" (click)="assignerEleve(user)">Assigner élève</button>
+          </div>
+        </li>
+    </ul>   
+</div>

@@ -1,0 +1,11 @@
+<h2>Choisissez un élève</h2>
+
+<mat-list *ngIf="students.length > 0; else noData">
+  <mat-list-item *ngFor="let student of students" (click)="selectStudent(student)">
+    {{ student?.eleve.nom }} {{ student?.eleve.prenom }}
+  </mat-list-item>
+</mat-list>
+
+<ng-template #noData>
+  <p>Aucun élève trouvé.</p>
+</ng-template>

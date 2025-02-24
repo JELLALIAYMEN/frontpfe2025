@@ -1,0 +1,54 @@
+.form-container {
+    padding: 20px;
+    max-width: 500px;
+  }
+  
+  .dialog-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .dialog-title {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .form-input {
+    width: 80%;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .action-btn {
+    min-width: 120px;
+  }
+  
+  .eleves-list {
+    margin-top: 20px;
+  }
+  
+  .eleve-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .no-eleves {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+  }
+  

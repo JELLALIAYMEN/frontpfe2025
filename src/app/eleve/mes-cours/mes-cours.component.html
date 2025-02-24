@@ -1,0 +1,26 @@
+<!-- Conteneur avec marges autour pour éviter que les cartes ne soient collées aux bords -->
+<div fxLayout="row wrap" fxLayoutGap="30px grid" fxLayoutAlign="center center" class="mt-4 container-cards">
+  <div *ngFor="let course of courses" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%" class="card-container">
+    <mat-card class="overflow-hidden">
+      <div>
+        <!-- Affichage de l'image de fond -->
+        <img src="assets/images/bgCours/bg-course1.jpg" class="w-100" alt="Course Image">
+      </div>
+      <div class="card-img-overlay">
+        <h4 class="course-class">{{ course.classe.nomclasse }}</h4>
+        <h2 class="course-title">{{ course.matiere?.nom }}</h2>
+        <h3 class="course-subtitle">{{ course.nomcour }}</h3>
+      </div>
+      <mat-card-content>
+        <div>
+          <p class="fs-18 lh-lg fw-medium">
+            Ouvrir le cours
+          </p>
+          <button mat-raised-button color="primary" (click)="openCourseFile(course.id)">
+            Ouvrir
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

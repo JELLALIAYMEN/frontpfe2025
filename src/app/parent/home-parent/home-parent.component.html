@@ -1,0 +1,13 @@
+<!-- Banner section -->
+<div class="banner">
+  <img src="assets/images/collége.jpg" alt="Banner Image">
+  <h1 class="banner-title">College Amal Bardo</h1>
+</div>
+  
+<div class="dashboard">
+  <div class="card" *ngFor="let item of parentMenuItems" (click)="handleMenuClick(item)">
+    <i class="{{ item.icon }}"></i>
+    <span>{{ item.name }}</span>
+  </div>
+</div>
+

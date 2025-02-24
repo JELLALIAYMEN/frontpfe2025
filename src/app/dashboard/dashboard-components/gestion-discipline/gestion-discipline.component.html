@@ -1,0 +1,45 @@
+  <!-- Bannière avec titre, image et description -->
+  <div class="banner">
+    <div class="banner-text">
+      <h3>Tableau de Bord - Gestion des Disciplines</h3>
+      <p>
+        Bienvenue dans votre espace d'administration des disciplines. 
+        Les enseignants soumettent des disciplines, et votre rôle en tant qu'administrateur est de les traiter. 
+        Vous pouvez accepter ou refuser ces disciplines avant qu'elles ne soient envoyées aux parents ou aux élèves.
+      </p>
+    </div>
+  </div>
+
+<div class="container">
+  <h2>Gestion de discipline élève</h2>
+  
+  <!-- Vérification si la liste est vide -->
+  <div *ngIf="disciplines.length === 0" class="no-data-message">
+    <p>Aucune discipline n'a été trouvée.</p>
+  </div>
+  
+  <!-- Barre de recherche et filtres -->
+  <ul class="responsive-table" *ngIf="disciplines.length > 0">
+      <li class="table-header">
+        <div class="col col-2">Élève</div>
+        <div class="col col-3">Enseignant</div>
+        <div class="col col-3">Statut</div>
+        <div class="col col-4">Actions</div>
+      </li>
+    
+      <!-- Itération sur la liste des utilisateurs -->
+      <li *ngFor="let discipline of disciplines" class="table-row">
+        <div class="col col-2" data-label="Élève">{{ discipline.eleve.nom }} {{ discipline.eleve.prenom }} </div>
+        <div class="col col-3" data-label="Enseignant">{{ discipline.enseignant.nom }} {{ discipline.enseignant.prenom }} </div>
+        <div class="col col-3" data-label="Statut">{{ discipline.statusDisc | titlecase }} </div>
+        <div class="col col-4" data-label="Actions">
+          <button class="action-btn details-btn" (click)="openDisciplineDetailsInDialog(discipline)">
+            Détails
+          </button> 
+          <button class="action-btn delete-btn" (click)="removeDiscipline(discipline)">
+            Supprimer
+          </button>         
+        </div>
+      </li>
+  </ul>      
+</div>

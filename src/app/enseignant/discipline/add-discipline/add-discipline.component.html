@@ -1,0 +1,43 @@
+<mat-dialog-content class="mat-typography form-container" *ngIf="disciplineForm">
+  <div class="dialog-header">
+    <h3 class="dialog-title">Ajouter une nouvelle discipline</h3>
+  </div>
+  <form [formGroup]="disciplineForm" (ngSubmit)="ajouterDiscipline()">
+
+    <!-- Cause -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cause</mat-label>
+      <textarea matInput placeholder="Entrez la cause de la discipline" formControlName="cause" rows="4" required></textarea>
+      <mat-icon matPrefix>announcement</mat-icon>
+      <mat-error *ngIf="disciplineForm.controls['cause']?.invalid && disciplineForm.controls['cause']?.touched">
+        La cause est requise.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Fichier -->
+    <div class="file-upload">
+      <label for="fileInput">Fichier</label>
+      <!-- Remarque ajoutée ici -->
+      <mat-hint class="file-hint">Le fichier envoyé doit être une vidéo (formats acceptés : .mp4, .mov, etc.).</mat-hint>
+      <input type="file" (change)="onFileSelected($event)" accept="video/*" />
+      <mat-icon matPrefix>attach_file</mat-icon>
+    </div>
+
+    <!-- Élève -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Élève</mat-label>
+      <mat-select formControlName="eleveId" required>
+        <mat-option *ngFor="let eleve of eleves" [value]="eleve.id">{{ eleve.nom }} {{ eleve.prenom }}</mat-option>
+      </mat-select>
+      <mat-icon matPrefix>school</mat-icon>
+      <mat-error *ngIf="disciplineForm.controls['eleveId']?.invalid && disciplineForm.controls['eleveId']?.touched">
+        L'élève est requis.
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions class="action-buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="disciplineForm.invalid">Ajouter</button>
+      <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</mat-dialog-content>

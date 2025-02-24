@@ -1,0 +1,58 @@
+<div class="menu2-container">
+    <!-- Affichage du Menu du Jour -->
+    <div class="menu-card">
+      <div class="menu-header">
+        <h3>Ajout Credit</h3>
+      </div>
+      <div class="menu-body">
+        <form [formGroup]="payementForm" (ngSubmit)="onSubmit()">
+          <div *ngIf="loading" class="loader-container">
+            <div class="spinner"></div>
+            <p>Chargement en cours...</p>
+          </div>
+          <!-- Messages de succès ou d'erreur -->
+          <div *ngIf="successMessage" class="alert alert-success mt-3">
+            {{ successMessage }}
+          </div>
+         
+  
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Matricule</mat-label>
+              <input matInput id="amountPaye" type="text" formControlName="matricule" />
+              <mat-error *ngIf="payementForm.get('amountPaye')?.hasError('required')">
+                Le matricule.
+              </mat-error>
+            
+            </mat-form-field>
+          </div>
+  
+         
+  
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Type de Paiement</mat-label>
+              <mat-select id="modalitePay" formControlName="type">
+                <mat-option *ngFor="let t of alltype" [value]="t.type">{{ t.type }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="payementForm.get('modalitePay')?.hasError('required')">
+                La modalité de paiement est requise.
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+     
+  
+      
+  
+        
+        
+          <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+        </form>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

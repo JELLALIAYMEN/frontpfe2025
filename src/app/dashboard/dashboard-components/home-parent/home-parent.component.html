@@ -1,0 +1,7 @@
+<div class="dashboard">
+    <div class="card" *ngFor="let item of parentMenuItems" (click)="navigateTo(item.route)">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+  </div>
+  

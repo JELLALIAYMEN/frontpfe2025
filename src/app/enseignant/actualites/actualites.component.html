@@ -1,0 +1,46 @@
+<div class="container">
+
+    <!-- Section pour afficher les actualités -->
+    <div *ngFor="let actualite of actualites" class="post-card">
+      <div class="post-icon">
+        <mat-icon>{{ actualite.icon }}</mat-icon>
+      </div>
+      <div class="post-content">
+        <h4>{{ actualite.title }}</h4>
+        <small>{{ actualite.date | date }}</small>
+        <p>{{ actualite.description }}</p>
+    
+        <!-- Affichage de la vidéo -->
+        <div *ngIf="actualite.videoUrl && actualite.videoUrl !== ''" class="video-container">
+          <video
+            width="70%"
+            height="auto"
+            controls      >
+            <source [src]="actualite.videoUrl" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+        </div>
+        <!-- Affichage du fichier -->
+      <div *ngIf="actualite.fichierUrl && actualite.fichierUrl !== ''">
+        <a [href]="actualite.fichierUrl" target="_blank">Télécharger le fichier</a>
+      </div>
+      <!-- Affichage du fichier -->
+      <div *ngIf="actualite.fichierUrl && actualite.fichierUrl !== ''" class="file-container">
+        <div class="file-card">
+          <mat-icon color="primary" class="file-icon">insert_drive_file</mat-icon>
+          <div class="file-details">
+            <p class="file-name">Document disponible</p>
+            <small class="file-hint">
+              <a [href]="actualite.fichierUrl" target="_blank" class="file-download-btn"> Cliquez pour télécharger </a>
+            </small>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <div class="pagination-controls">
+      <button mat-button (click)="prevPage()" [disabled]="page === 0">Précédent</button>
+      <button mat-button (click)="nextPage()" [disabled]="page === totalPages - 1">Suivant</button>
+    </div>
+</div>

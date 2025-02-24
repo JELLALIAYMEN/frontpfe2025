@@ -1,0 +1,31 @@
+<!-- parent.component.html -->
+<mat-toolbar class="header ps-24 pe-24">
+    <!-- Logo on the left -->
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo" class="logo-image">
+    </div>
+  
+    <!-- User profile and menu -->
+    <div class="ms-auto">
+      <button mat-button class="fs-16 pt-4 pb-4 ps-8 pe-8 text-light-muted" [matMenuTriggerFor]="menu">
+        <img src="assets/images/userProfile.jpg" class="image--cover" alt="User Profile">
+        <span class="fw-light ms-8 text-secondary">Bonjour,</span>
+        <span class="fw-bold ms-8 me-2">{{ userName }}</span>
+        <span class="fw-light ms-8 me-2 text-secondary" *ngIf="userProfile == 'eleve'"><strong>{{classe}}</strong></span>
+        <i-feather name="chevron-down" class="feather-base mt-n2"></i-feather>
+      </button>
+      <mat-menu #menu="matMenu" class="profile-dropdown">
+        <div class="p-16 mb-4">
+          <button mat-menu-item class="fs-16" routerLink="/shared/mon-profile">Edit Profile</button>
+          <button mat-menu-item class="fs-16" routerLink="/shared/change-pwd">Changer Mot de passe</button>
+        </div>
+        <hr>
+        <div class="p-16">
+          <button mat-button class="btn btn-info w-100" (click)="clear()">Logout</button>
+        </div>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+  
+ 
+<router-outlet></router-outlet>

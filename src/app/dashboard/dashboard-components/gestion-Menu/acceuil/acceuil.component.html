@@ -1,0 +1,25 @@
+<div class="menu-container">
+  <!-- Bannière avec titre, image et description -->
+  <div class="banner">
+    <img src="assets/images/menu.png" alt="Menu Banner" class="banner-image" />
+    <div class="banner-text">
+      <h3>Tableau de Bord - Gestion des Menus et Réservations</h3>
+      <p>
+        Bienvenue dans votre espace d'administration. Gérez efficacement les menus quotidiens, 
+        suivez les réservations et organisez les tâches culinaires pour une meilleure satisfaction client.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dashboard menu -->
+  <div class="dashboard">
+    <div class="card" *ngFor="let item of menuItems" (click)="item.action()">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+  </div>
+
+  <!-- Components dynamiques -->
+  <app-create-menu *ngIf="showAjoutMenuForm"></app-create-menu>
+  <app-liste-des-menu *ngIf="showListeMenu"></app-liste-des-menu>
+</div>

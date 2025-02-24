@@ -1,0 +1,59 @@
+/* Container des cartes avec marges pour éviter qu'elles ne soient collées aux bords */
+.container-cards {
+  padding: 0 20px; /* Ajoute de l'espace horizontal autour des cartes */
+}
+
+/* Container individuel pour chaque carte */
+.card-container {
+  margin-bottom: 20px; /* Ajoute une marge sous chaque carte pour espacer les lignes */
+}
+
+/* Ajustement de la taille des cartes */
+mat-card {
+  max-width: 300px; /* Limite la largeur des cartes */
+  margin: 10px auto; /* Centre la carte horizontalement et ajoute une marge autour */
+}
+
+/* Ajout d'un effet global pour le conteneur de la carte */
+.card-img-overlay {
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour un effet "carte" */
+}
+
+h2, h3, h4 {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Effet de survol pour les titres */
+h2:hover, h3:hover, h4:hover {
+  transform: scale(1.05); /* Agrandir légèrement au survol */
+  color: #333; /* Changer la couleur au survol */
+}
+
+/* Marges et taille des titres */
+h2 {
+  margin: 20px;
+  font-size: 1.8rem;
+  color: #1d1d5c;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  margin: 15px;
+  font-size: 1.5rem;
+  color: #1d1d5c;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+h4 {
+  margin: 10px;
+  font-size: 1.2rem;
+  color: #1d1d5c;
+  font-weight: normal;
+  font-style: italic;
+  font-weight: 600;
+}

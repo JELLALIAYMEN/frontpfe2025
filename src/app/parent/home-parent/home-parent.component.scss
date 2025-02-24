@@ -1,0 +1,62 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour les cartes */
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card i {
+  font-size: 36px;
+  color: #1d1d5c;
+  margin-bottom: 10px;
+}
+
+.card span {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+
+  
+.banner {
+  position: relative; /* Permet de positionner les éléments à l'intérieur en absolu */
+  width: 100%; /* La bannière occupe toute la largeur */
+  height: 250px; /* Hauteur fixe pour la bannière */
+  overflow: hidden; /* Assure que l'image reste bien cadrée */
+  margin-top: 20px;
+}
+
+.banner img {
+  width: 100%; /* L'image remplit toute la largeur */
+  height: 100%; /* L'image remplit toute la hauteur */
+  object-fit: cover; /* Garde les proportions tout en remplissant l'espace */
+}
+
+.banner-title {
+  position: absolute; /* Positionne le texte au-dessus de l'image */
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Ajuste pour être parfaitement centré */
+  color: white; /* Texte blanc pour contraster avec l'image */
+  font-size: 32px; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre pour améliorer la lisibilité */
+  text-align: center; /* Centre le texte */
+}

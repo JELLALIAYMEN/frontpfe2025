@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Discipline de {{ fullName }}</h2>
+  
+    <div *ngIf="disciplines.length > 0; else noDisciplines">
+      <div class="card-container">
+        <mat-card *ngFor="let discipline of disciplines" class="discipline-card">
+        <div class="card">
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Date:</strong> {{ discipline.date | date: 'dd/MM/yyyy' }}</p>
+            
+            <div *ngIf="discipline.videoPath">
+              <p><strong>Vidéo:</strong></p>
+              <video width="420" height="340" controls *ngIf="disciplineVideos[discipline.id]">
+                <source [src]="disciplineVideos[discipline.id]" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+            </div>
+            <p><strong>CauseEnseignant:</strong> {{ discipline.enseignant.nom }} {{ discipline.enseignant.prenom }}</p>
+            <p><strong>Cause:</strong> {{ discipline.cause }}</p>
+            <p><strong>Commentaire de l'administrateur:</strong> {{ discipline.adminComment }}</p>
+          </mat-card-content>
+         </div>
+        </mat-card>
+      </div>
+    </div>
+  
+    <ng-template #noDisciplines>
+      <div class="no-disciplines">
+        <p>Aucune discipline trouvée pour cet élève.</p>
+      </div>
+    </ng-template>
+  </div>
+  

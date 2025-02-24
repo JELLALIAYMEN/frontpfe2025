@@ -1,0 +1,111 @@
+<form [formGroup]="mattForm">
+
+<table>
+    <tr>
+        <td><div class="form-group">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Matricule</mat-label>
+              <input matInput id="amountPaye" type="text" formControlName="matricule" />
+            
+            </mat-form-field>
+          </div></td>
+          <td [width]="50"></td>
+          <td>
+            <div data-label="Actions">
+                <a type="button" class="btn btn-success" (click)="affiche1()">Afficher par matricule</a>
+            </div>
+          </td>
+    </tr>
+</table>
+</form>
+<br>
+<form [formGroup]="classeForm">
+<table>
+    <tr>
+        <td>
+            <div class="form-group">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Classe</mat-label>
+                  <mat-select id="modalitePay" formControlName="nomclasse">
+                    <mat-option *ngFor="let c of allclasse" [value]="c.id">{{ c.nomclasse }}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="classeForm.get('nomclasse')?.hasError('required')">
+                    La modalité de paiement est requise.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+        </td>
+          <td [width]="50"></td>
+          <td>
+            <div data-label="Actions">
+                <a type="button" class="btn btn-success" (click)="affiche2()">Afficher par classe</a>
+            </div>
+          </td>
+    </tr>
+</table>
+</form>
+
+<br><br>
+<a [routerLink]="['../ajout-credit']" type="button" class="btn btn-success">Ajout Credit</a>
+<br><br>
+
+<div class="container">
+    <h2>Gestion De Credit</h2>
+    <!-- Tableau -->
+    <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-2">Nom et Prenom</div>
+          <div class="col col-2">Type</div>
+          <div class="col col-2">Prix</div>
+
+          <div class="col col-2">Action</div>
+
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <div *ngIf="!this.aff1 &&  !this.aff2 ">        <li *ngFor="let c of allcredit" class="table-row">
+          <div class="col col-2" data-label="Elève">{{ c.user.nom }}  {{ c.user.prenom }}</div>
+          <div class="col col-2" data-label="Enseignant">{{c.typep.type}}</div>
+
+          <div class="col col-2" data-label="Enseignant">{{c.prix}}</div>
+          <div class="col col-2" data-label="Actions">
+            <a [routerLink]="['../gestion-paiement',{id:c.id}]" *ngIf="c.prix!=0" class="action-btn details-btn">Payer</a>
+          </div>
+          
+        </li>
+        <div class="col col-2" data-label="Enseignant">Le Total est : {{this.total}} </div>
+
+    </div>
+
+    
+<div *ngIf="this.aff1 && !this.aff2 && !this.aff3">   
+        <li  *ngFor="let c of creditbymat" class="table-row">
+            <div class="col col-2" data-label="Elève">{{ c.user.nom }}  {{ c.user.prenom }}</div>
+            <div class="col col-2" data-label="Enseignant">{{c.typep.type}}</div>
+  
+            <div class="col col-2" data-label="Enseignant">{{c.prix}}</div>
+            <div class="col col-2" data-label="Actions">
+              <a [routerLink]="['../gestion-paiement',{id:c.id}]" *ngIf="c.prix!=0" class="action-btn details-btn">Payer</a>
+            </div>
+          </li>
+          <div class="col col-2" data-label="Enseignant">Le Total est : {{this.total}} </div>
+
+        </div>
+        <div *ngIf="this.aff2 && !this.aff1 && !this.aff3">   
+            <li  *ngFor="let c of creditbyclasse" class="table-row">
+                <div class="col col-2" data-label="Elève">{{ c.user.nom }}  {{ c.user.prenom }}</div>
+                <div class="col col-2" data-label="Enseignant">{{c.typep.type}}</div>
+      
+                <div class="col col-2" data-label="Enseignant">{{c.prix}}</div>
+                <div class="col col-2" data-label="Actions">
+                  <a [routerLink]="['../gestion-paiement',{id:c.id}]" *ngIf="c.prix!=0" class="action-btn details-btn">Payer</a>
+                </div>
+              </li>
+              <div class="col col-2" data-label="Enseignant">Le Total est : {{this.total}} </div>
+
+            </div>
+ 
+
+    </ul>   
+  </div>
+  

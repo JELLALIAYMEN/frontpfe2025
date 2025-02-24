@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="back-button mb-2">
+      <a routerLink="/enseignant/home-enseignant">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+      
+    <h2>Réclamations envoyées par les élèves</h2>
+  
+   <!-- Vérification si des réclamations existent -->
+   <div *ngIf="reclamations.length === 0" class="no-reclamations">
+      <p>Aucune réclamation disponible pour cet enseignant.</p>
+   </div>
+  
+    <!-- Tableau -->
+    <ul class="responsive-table" *ngIf="reclamations.length > 0">
+        <li class="table-header">
+          <div class="col col-2">Elève</div>
+          <div class="col col-2">Date</div>
+          <div class="col col-2">Résultat</div>
+          <div class="col col-2">Actions</div>
+        </li>
+      
+        <!-- Itération sur la liste des réclamations -->
+        <li *ngFor="let reclamation of reclamations" class="table-row">
+          <div class="col col-2" data-label="Elève">{{ reclamation?.user?.nom }} {{ reclamation?.user?.prenom }}</div>
+          <div class="col col-2" data-label="Date">{{ reclamation?.date | date:'dd/MM/yyyy' }}</div>
+          <div class="col col-2" data-label="Résultat">{{ reclamation?.resultat }}</div>
+          <div class="col col-2" data-label="Actions">
+            <button class="action-btn details-btn" (click)="detailReclamation(reclamation)">Détails</button>
+            <button class="action-btn edit-btn" (click)="repondre(reclamation)">Répondre</button>
+          </div>
+        </li>
+    </ul>      
+</div>

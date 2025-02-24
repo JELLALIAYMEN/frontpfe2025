@@ -1,0 +1,37 @@
+<mat-dialog-content class="mat-typography">
+    <div class="dialog-header">
+      <h3>Détails du Parent</h3>
+    </div>
+  
+    <div class="details-container">
+      <div class="detail-field">
+        <mat-label>Nom</mat-label>
+        <span>{{data.nom}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Prénom</mat-label>
+        <span>{{data.prenom}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Email</mat-label>
+        <span>{{data.email}}</span>
+      </div>
+
+      <div class="detail-field">
+        <mat-label>Libellé</mat-label>
+        <span>{{data.libelle}}</span>
+      </div>
+
+      <div class="detail-field">
+        <mat-label>Login</mat-label>
+        <span>{{data.login}}</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="action-buttons">
+    <button mat-button mat-dialog-close>Fermer</button>
+  </mat-dialog-actions>
+  

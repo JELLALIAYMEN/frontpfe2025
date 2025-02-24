@@ -1,0 +1,58 @@
+<mat-dialog-content class="mat-typography form-container">
+  <div class="dialog-header">
+    <h3 class="dialog-title">Modifier un élève</h3>
+  </div>
+
+  <!-- Formulaire -->
+  <form [formGroup]="eleveForm">
+    <!-- Nom de l'élève -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="nom" placeholder="Nom de l'élève">
+      <mat-icon matPrefix>person</mat-icon>
+    </mat-form-field>
+
+    <!-- Prénom de l'élève -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="prenom" placeholder="Prénom de l'élève">
+      <mat-icon matPrefix>person_outline</mat-icon>
+    </mat-form-field>
+
+    <!-- Login -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" placeholder="Login de l'élève">
+      <mat-icon matPrefix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <!-- Adresse email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="exemple@domain.com">
+      <mat-icon matPrefix>email</mat-icon>
+    </mat-form-field>
+
+    <!-- Libellé -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Libellé</mat-label>
+      <input matInput formControlName="libelle" placeholder="Libellé">
+      <mat-icon matPrefix>description</mat-icon>
+    </mat-form-field>
+
+    <!-- Classe -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Classe</mat-label>
+      <mat-select formControlName="classe">
+        <mat-option *ngFor="let classe of classes" [value]="classe.id">{{ classe.nomclasse }}</mat-option>
+      </mat-select>
+      <mat-icon matPrefix>school</mat-icon>
+    </mat-form-field>
+    
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="action-buttons">
+  <button mat-raised-button color="primary" (click)="saveChanges()">Enregistrer</button>
+  <button mat-button (click)="closeDialog()" color="warn">Annuler</button>
+</mat-dialog-actions>

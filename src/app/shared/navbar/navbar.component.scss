@@ -1,0 +1,64 @@
+/* Style pour le logo */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .logo-image {
+    width: 80px; /* Taille du logo */
+    height: auto;
+  }
+  
+  /* Personnalisation du profil utilisateur */
+  .profile-dropdown .mat-menu-item {
+    font-size: 16px;
+  }
+  
+  .image--cover {
+    width: 30px; /* Taille de l'image du profil */
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  /* Adapter le menu déroulant */
+  .mat-menu {
+    min-width: 200px;
+  }
+  
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour les cartes */
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card i {
+    font-size: 36px;
+    color: #1d1d5c;
+    margin-bottom: 10px;
+  }
+  
+  .card span {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  

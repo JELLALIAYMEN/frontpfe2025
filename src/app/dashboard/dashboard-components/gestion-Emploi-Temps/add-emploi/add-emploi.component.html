@@ -1,0 +1,79 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Ajouter un emploi du temps</h3>
+    </div>
+    <form [formGroup]="emploiForm" (ngSubmit)="ajouterCalendrier()">
+        <!-- Autres champs du formulaire -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Sélectionnez une date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="emploiForm.get('date')?.invalid && emploiForm.get('date')?.touched">
+            La date est requise.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nom du Jour</mat-label>
+          <mat-select formControlName="nomjour" required>
+            <mat-option *ngFor="let jour of joursDeLaSemaine" [value]="jour">{{ jour }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="emploiForm.get('nomjour')?.hasError('required')">Le nom du jour est requis</mat-error>
+        </mat-form-field>
+
+        <!-- Heure -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Heure</mat-label>
+          <input matInput placeholder="Entrez l'heure sous former 00:00 - 00:00" formControlName="heure" required>
+          <mat-error *ngIf="emploiForm.get('heure')?.invalid && emploiForm.get('heure')?.touched">
+            L'heure est requise.
+          </mat-error>
+        </mat-form-field>
+       
+        <!-- Champ Parqueinzeine (checkbox) -->
+        <mat-checkbox formControlName="parqueinzeine" class="full-width">
+          Est-ce par quinzaine ? <small>(Optional)</small>
+        </mat-checkbox>
+      
+        <!-- Autres champs du formulaire -->
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email du professeur</mat-label>
+          <input matInput formControlName="email" required email />
+          <mat-error *ngIf="emploiForm.get('email')?.hasError('required')">Email requis</mat-error>
+          <mat-error *ngIf="emploiForm.get('email')?.hasError('email')">Email invalide</mat-error>
+        </mat-form-field>
+          
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Salle</mat-label>
+          <mat-select formControlName="salle" required>
+            <mat-option *ngFor="let salle of salles" [value]="salle.nomdesalle">{{ salle.nomdesalle }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="emploiForm.get('salle')?.hasError('required')">Salle requise</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Matière</mat-label>
+          <mat-select formControlName="matiere" required>
+            <mat-option *ngFor="let matiere of matieres" [value]="matiere.nom">{{ matiere.nom }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="emploiForm.get('matiere')?.hasError('required')">Matière requise</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Classe</mat-label>
+          <mat-select formControlName="classe" required>
+            <mat-option *ngFor="let classe of classes" [value]="classe.nomclasse">{{ classe.nomclasse }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="emploiForm.get('classe')?.hasError('required')">Classe requise</mat-error>
+        </mat-form-field>
+      
+        <div mat-dialog-actions class="action-buttons">
+          <button mat-raised-button color="primary" type="submit" [disabled]="emploiForm.invalid">Ajouter</button>
+          <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
+        </div>
+      </form>
+      
+  </mat-dialog-content>
+  

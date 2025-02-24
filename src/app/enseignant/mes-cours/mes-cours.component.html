@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="back-button mb-2">
+    <a routerLink="/enseignant/home-enseignant">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+<!-- Bouton pour ajouter un cours -->
+<button mat-raised-button class="me-2" color="primary" (click)="openAddCours()">
+  <i class="fa-solid fa-plus me-1"></i>
+  Ajouter Cours
+</button>
+
+<!-- Mes cours -->
+<div fxLayout="row wrap" fxLayoutGap="30px grid" class="mt-4">
+  <div *ngFor="let course of courses" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.sm="100%">
+    <mat-card class="overflow-hidden">
+      <div>
+        <!-- Affichage de l'image de fond, ici une image générique, vous pouvez la lier à l'image du cours si disponible -->
+        <img src="assets/images/bgCours/bg-course1.jpg" class="w-100" alt="Course Image">
+      </div>
+      <div class="card-img-overlay">
+        <h4 class="course-class">{{ course.classe.nomclasse }}</h4>
+        <h2 class="course-title">{{ course.matiere?.nom }}</h2>
+        <h4 class="course-subtitle">{{ course.nomcour }}</h4>
+      </div>
+      
+      <mat-card-content>
+        <div>
+          <p class="fs-18 lh-lg fw-medium">
+            Ouvrir le cours
+          </p>
+        
+          <button mat-raised-button color="primary" (click)="openCourseFile(course.id)">
+            Ouvrir
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+</div>

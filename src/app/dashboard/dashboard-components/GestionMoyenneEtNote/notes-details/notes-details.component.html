@@ -1,0 +1,89 @@
+<h1 mat-dialog-title class="dialog-title">
+    <mat-icon>note_alt</mat-icon>
+    Détails des Notes
+  </h1>
+  
+  <div mat-dialog-content class="dialog-content">
+    <!-- Sélecteur de trimestre -->
+    <div class="trimester-select">
+      <h3>Sélectionnez un trimestre</h3>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Trimestre</mat-label>
+        <mat-select [(value)]="selectedTrimester" (selectionChange)="loadNotes()">
+          <mat-option *ngFor="let trimester of trimesters" [value]="trimester">
+            {{ trimester }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <!-- Liste des notes -->
+    <div class="notes-section" *ngIf="notes.length > 0; else noNotes">
+      <h3>Liste des notes</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let note of notes">
+          <mat-icon mat-list-icon>grade</mat-icon>
+          <p mat-line>
+            <strong>{{ note.typeNote | readableEnum }}</strong>
+          </p>
+          <p mat-line>
+            <strong>Valeur:</strong> {{ note.noteValue }} |
+            <strong>Coefficient:</strong> {{ note.coff }}
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  
+    <ng-template #noNotes>
+      <div class="empty-state">
+        <mat-icon>info</mat-icon>
+        <p>Aucune note trouvée pour le trimestre sélectionné.</p>
+      </div>
+    </ng-template>
+  
+     <!-- Bouton pour afficher/masquer le formulaire -->
+  <div class="toggle-form">
+    <button mat-raised-button  color="primary" (click)="toggleFormVisibility()">
+        <i class="fa-solid fa-plus me-1"></i>
+        {{ formVisible ? 'Masquer le formulaire' : 'Ajouter une note' }}
+    </button>
+  </div>
+      <!-- Formulaire d'ajout de note, affiché uniquement si formVisible est true -->
+  <div *ngIf="formVisible" class="add-note-section">
+    <h3>Ajouter une note</h3>
+    <form [formGroup]="addNoteForm" (ngSubmit)="addNote()">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Type de Note</mat-label>
+          <mat-select formControlName="typeNote">
+            <mat-option *ngFor="let type of typeNotes" [value]="type">
+              {{ type | readableEnum }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>        
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Valeur de la Note</mat-label>
+          <input matInput formControlName="noteValue" type="number" placeholder="Ex: 15" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Coefficient</mat-label>
+          <input matInput formControlName="coff" type="number" placeholder="Ex: 2" />
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="addNoteForm.invalid || !selectedTrimester">
+        Ajouter la Note
+      </button>
+    </form>
+  </div>
+
+  </div>
+  
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Fermer</button>
+  </div>
+  

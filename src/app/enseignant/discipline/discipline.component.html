@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="back-button mb-2">
+    <a routerLink="/enseignant/home-enseignant">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+  <button mat-raised-button class="mb-2 me-2" color="primary" (click)="openAddDiscipline()">
+    <i class="fa-solid fa-plus me-1"></i>
+    Ajouter une nouvelle discipline
+  </button>
+    <h2>Gestion des disciplines</h2>
+    
+    <div class="filters">
+      <input type="text" class="search-bar" placeholder="Rechercher un élève..." (input)="onSearchInput($event)">
+      <select class="filter-dropdown" [(ngModel)]="selectedClasse" (change)="filterByClasse()">
+        <option value="">Filtrer par classe</option>
+        <option *ngFor="let classe of classes" [value]="classe.nomclasse">{{ classe.nomclasse }}</option>
+      </select>
+    </div>
+
+ <!-- Vérification si des disciplines existent -->
+ <div *ngIf="filtredDisicplines.length === 0" class="no-disciplines">
+    <p>Aucune discipline n'est disponible pour cet enseignant.</p>
+ </div>
+
+    <!-- Tableau -->
+    <ul class="responsive-table" *ngIf="filtredDisicplines.length > 0">
+        <li class="table-header">
+          <div class="col col-2">Elève</div>
+          <div class="col col-1">Classe</div>
+          <div class="col col-2">Date</div>
+          <div class="col col-2">Status</div>
+          <div class="col col-3">Actions</div>
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <li *ngFor="let discipline of filtredDisicplines" class="table-row">
+          <div class="col col-2" data-label="Elève">{{ discipline.eleve.nom }} {{ discipline.eleve.prenom }}</div>
+          <div class="col col-1" data-label="Classe">{{ discipline?.eleve?.classe?.nomclasse }}</div>
+          <div class="col col-2" data-label="Date">{{discipline?.date}}</div>
+          <div class="col col-2" data-label="Status">{{discipline?.statusDisc}}</div>
+          <div class="col col-3" data-label="Actions">
+            <button class="action-btn edit-btn" (click)="modifierDiscipline(discipline)">Modifier</button>
+            <button class="action-btn delete-btn" (click)="openConfirmationDialog(discipline)">Supprimer</button>
+            <button class="action-btn validate-btn" *ngIf="discipline.statusDisc == 'PENDING'" (click)="sendToAdmin(discipline.id)">Valider</button>
+          </div>
+        </li>
+    </ul>      
+</div>

@@ -1,0 +1,41 @@
+/* Conteneur principal */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espace entre chaque champ */
+    padding: 16px; /* Ajoute un padding autour du formulaire */
+  }
+  /* En-tête du formulaire */
+  .dialog-header {
+    text-align: center; /* Centrer le titre */
+    margin-bottom: 16px; /* Ajouter un espace entre le titre et le formulaire */
+  }
+  
+  .dialog-title {
+    font-size: 1.8rem; /* Taille de police légèrement augmentée */
+    font-weight: 600; /* Poids de police pour plus d'impact visuel */
+    color: #2c3e50; /* Couleur douce et professionnelle */
+    margin: 0; /* Supprimer les marges par défaut */
+  }
+  
+  /* Champs de formulaire */
+  mat-form-field {
+    width: 100%; /* Assure que les champs occupent toute la largeur */
+  }
+  
+  mat-form-field mat-icon {
+    color: #7f8c8d; /* Icône plus discrète */
+  }
+  
+  /* Boutons d'actions */
+  mat-dialog-actions.action-buttons {
+    display: flex;
+    justify-content: flex-end; /* Boutons alignés à droite */
+    gap: 8px; /* Espacement entre les boutons */
+  }
+  
+  /* Bouton Ajouter */
+  mat-dialog-actions .mat-raised-button {
+    font-weight: bold;
+  }
+  

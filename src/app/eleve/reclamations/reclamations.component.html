@@ -1,0 +1,149 @@
+<div class="menu2-container">
+  <!-- Affichage du Menu du Jour -->
+  <div class="menu-card">
+    <div class="back-button">
+      <a routerLink="/eleve/home-eleve">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+    <div class="menu-header">
+      <h3>Ajouter une réclamation</h3>
+    </div>
+    <div class="menu-body">
+      <!-- Affichage des messages -->
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Loader -->
+      <div *ngIf="isLoading" class="text-center my-3">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Chargement...</span>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <form [formGroup]="reclamationForm" (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email de l'enseignant :</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Entrez votre email"
+          />
+          <div
+            *ngIf="reclamationForm.get('email')?.invalid && reclamationForm.get('email')?.touched"
+            class="text-danger"
+          >
+            L'email est obligatoire et doit être valide.
+          </div>
+        </div>
+
+        <!-- Matricule -->
+        <div class="form-group">
+          <label for="matricule">Matricule :</label>
+          <input
+            type="text"
+            id="matricule"
+            formControlName="matricule"
+            class="form-control"
+            placeholder="Entrez votre matricule"
+          />
+          <div
+            *ngIf="reclamationForm.get('matricule')?.invalid && reclamationForm.get('matricule')?.touched"
+            class="text-danger"
+          >
+            Le matricule est obligatoire.
+          </div>
+        </div>
+
+        <!-- Sujet -->
+        <div class="form-group">
+          <label for="sujet">Sujet :</label>
+          <input
+            type="text"
+            id="sujet"
+            formControlName="sujet"
+            class="form-control"
+            placeholder="Entrez le sujet de votre réclamation"
+          />
+          <div
+            *ngIf="reclamationForm.get('sujet')?.invalid && reclamationForm.get('sujet')?.touched"
+            class="text-danger"
+          >
+            Le sujet est obligatoire.
+          </div>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+          <label for="date">Date :</label>
+          <input
+            type="date"
+            id="date"
+            formControlName="date"
+            class="form-control mb-2"
+          />
+          <div
+            *ngIf="reclamationForm.get('date')?.invalid && reclamationForm.get('date')?.touched"
+            class="text-danger"
+          >
+            La date est obligatoire.
+          </div>
+        </div>
+
+        <!-- Bouton d'envoi -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="reclamationForm.invalid || isLoading"
+        >
+          Envoyer
+        </button>
+      </form>
+
+      <!-- Liste des réclamations -->
+      <div class="reclamation-list mt-5">
+        <h3>Liste des réclamations</h3>
+
+        <!-- Loader pour la liste -->
+        <div *ngIf="isLoadingReclamations" class="text-center my-3">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Chargement...</span>
+          </div>
+        </div>
+
+        <!-- Affichage des réclamations -->
+        <table class="table table-bordered" *ngIf="!isLoadingReclamations">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email enseignant</th>
+              <th>Sujet</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reclamation of reclamations; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ reclamation.destinataire.email }}</td>
+              <td>{{ reclamation.sujet }}</td>
+              <td>{{ reclamation.date | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Message si aucune réclamation -->
+        <div *ngIf="reclamations.length === 0" class="text-center mt-3">
+          <p>Aucune réclamation disponible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

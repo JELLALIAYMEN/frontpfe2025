@@ -1,0 +1,83 @@
+<div class="container">
+    <mat-card class="menu-card">
+      <mat-card-header>
+        <mat-card-title>Ajouter un Nouveau Menu</mat-card-title>
+      </mat-card-header>
+      
+      <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+        
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Type de Menu</mat-label>
+            <mat-select formControlName="typemenu" placeholder="Sélectionnez un type de menu">
+              <mat-option *ngFor="let type of typemenuOptions" [value]="type">
+                {{ type }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="menuForm.get('typemenu')?.hasError('required')">
+              Le type est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Plat Entrée</mat-label>
+            <input matInput formControlName="platentree" placeholder="Entrée du menu" />
+            <mat-error *ngIf="menuForm.get('platentree')?.hasError('required')">
+              Le plat entrée est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Plat Principal</mat-label>
+            <input matInput formControlName="platprincipale" placeholder="Plat principal" />
+            <mat-error *ngIf="menuForm.get('platprincipale')?.hasError('required')">
+              Le plat principal est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Dessert</mat-label>
+            <input matInput formControlName="dessert" placeholder="Dessert" />
+            <mat-error *ngIf="menuForm.get('dessert')?.hasError('required')">
+              Le dessert est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Jour</mat-label>
+            <mat-select formControlName="nomjour" placeholder="Sélectionnez un jour">
+              <mat-option *ngFor="let jour of joursOptions" [value]="jour">
+                {{ jour }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="menuForm.get('nomjour')?.hasError('required')">
+              Le jour est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date Début</mat-label>
+            <input matInput type="date" formControlName="datedeb" />
+            <mat-error *ngIf="menuForm.get('datedeb')?.hasError('required')">
+              La date début est obligatoire !
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date Fin</mat-label>
+            <input matInput type="date" formControlName="datefin" />
+            <mat-error *ngIf="menuForm.get('datefin')?.hasError('required')">
+              La date fin est obligatoire !
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+  
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!menuForm.valid">
+            Ajouter Menu
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+  

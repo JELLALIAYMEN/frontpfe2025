@@ -1,0 +1,60 @@
+.dialog-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1d1d5c;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  .dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .trimester-select {
+    margin-bottom: 10px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .notes-section {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .mat-list-item {
+    margin-bottom: 8px;
+  }
+  
+  .empty-state {
+    text-align: center;
+    color: #757575;
+    font-style: italic;
+  }
+  
+  .add-note-section {
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }

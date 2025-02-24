@@ -1,0 +1,49 @@
+.banner {
+    position: relative; /* Permet de positionner les éléments à l'intérieur en absolu */
+    width: 100%; /* La bannière occupe toute la largeur */
+    height: 200px; /* Hauteur fixe pour la bannière */
+    overflow: hidden; /* Assure que l'image reste bien cadrée */
+    margin-bottom: 20px;
+  }
+  
+  .banner img {
+    width: 100%; /* L'image remplit toute la largeur */
+    height: 100%; /* L'image remplit toute la hauteur */
+    object-fit: cover; /* Garde les proportions tout en remplissant l'espace */
+  }
+  
+  .banner-title {
+    position: absolute; /* Positionne le texte au-dessus de l'image */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour être parfaitement centré */
+    color: white; /* Texte blanc pour contraster avec l'image */
+    font-size: 32px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ajoute une ombre pour améliorer la lisibilité */
+    text-align: center; /* Centre le texte */
+  }
+  /* Date & Time Styles */
+.datetime-container {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #cfcffa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .datetime h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1d1d5c;
+    margin: 0;
+  }
+  
+  .datetime h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1d1d5c;
+    margin: 5px 0 0;
+  }
+  

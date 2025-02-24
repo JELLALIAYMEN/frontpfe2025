@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="change-password-container">
+  <h2>Changer le mot de passe</h2>
+
+  <form (ngSubmit)="changePassword()">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Nouveau mot de passe</mat-label>
+      <input 
+        matInput 
+        [type]="passwordField ? 'text' : 'password'" 
+        [(ngModel)]="newPassword" 
+        name="newPassword" 
+        required
+        minlength="6"
+        placeholder="Entrez un nouveau mot de passe">
+      <mat-icon matSuffix (click)="togglePasswordVisibility()">
+        {{ passwordField ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Confirmer le mot de passe</mat-label>
+      <input 
+        matInput 
+        [type]="passwordField ? 'text' : 'password'" 
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword" 
+        required
+        minlength="6"
+        placeholder="Confirmez votre mot de passe">
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary" [disabled]="!validatePasswords()">
+      Changer le mot de passe
+    </button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</div>

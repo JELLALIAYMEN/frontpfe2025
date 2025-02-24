@@ -1,0 +1,126 @@
+<mat-dialog-content class="mat-typography form-container">
+  <div class="dialog-header">
+    <h3 class="dialog-title">Ajouter une nouvelle actualité</h3>
+  </div> 
+<div class="container">
+    <div class="card shadow mt-4">
+      <div class="card-header bg-primary text-white d-flex align-items-center">
+        <i class="bi bi-pencil-square me-2"></i>
+        <h5 class="mb-0">Créer une Actualité</h5>
+      </div>
+      <div *ngIf="isLoading" class="loader-container">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Chargement...</span>
+        </div>
+      </div>
+      <div class="card-body">
+          <!-- Formulaire -->
+          <form (ngSubmit)="onSubmit()">
+            <!-- Titre -->
+            <div class="mb-3">
+              <label for="titre" class="form-label">Titre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="titre"
+                [(ngModel)]="titre"
+                name="titre"
+                placeholder="Entrez le titre de l'actualité"
+                required
+              />
+            </div>
+  
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                [(ngModel)]="description"
+                name="description"
+                rows="4"
+                placeholder="Entrez une description détaillée"
+                required
+              ></textarea>
+            </div>
+  
+            <!-- Cible -->
+            <div class="mb-3">
+              <label for="cible" class="form-label">Cible</label>
+              <select
+                class="form-select"
+                id="cible"
+                [(ngModel)]="cible"
+                name="cible"
+                required
+              >
+                <option value="ELEVE">Élève</option>
+                <option value="ENSEIGNANT">Enseignant</option>
+              </select>
+            </div>
+  
+            <!-- Zone de téléchargement pour Vidéo -->
+            <div class="mb-3">
+              <label class="form-label">Ajouter une vidéo (optionnel)</label>
+              <div
+                class="upload-box border rounded p-3 text-center"
+                (click)="openFileDialog('videoInput')"
+                (drop)="handleDrop($event, 'video')"
+                (dragover)="handleDragOver($event)"
+              >
+                <i class="bi bi-cloud-arrow-up fs-1 text-primary"></i>
+                <p class="mb-0">
+                  Glissez votre vidéo ici ou
+                  <span class="text-primary">cliquez pour importer</span>
+                </p>
+                <input
+                  type="file"
+                  #videoInput
+                  id="videoInput"
+                  (change)="onVideoChange($event)"
+                  accept="video/*"
+                  hidden
+                />
+              </div>
+              <small *ngIf="video">{{ video.name }}</small>
+              <small class="text-muted">La vidéo est optionnelle.</small>
+            </div>
+  
+            <!-- Zone de téléchargement pour Fichier -->
+            <div class="mb-3">
+              <label class="form-label">Ajouter un fichier (optionnel)</label>
+              <div
+                class="upload-box border rounded p-3 text-center"
+                (click)="openFileDialog('fileInput')"
+                (drop)="handleDrop($event, 'file')"
+                (dragover)="handleDragOver($event)"
+              >
+                <i class="bi bi-file-earmark fs-1 text-primary"></i>
+                <p class="mb-0">
+                  Glissez votre fichier ici ou
+                  <span class="text-primary">cliquez pour importer</span>
+                </p>
+                <input
+                  type="file"
+                  #fileInput
+                  id="fileInput"
+                  (change)="onFichierChange($event)"
+                  accept=".pdf,.doc,.docx"
+                  hidden
+                />
+              </div>
+              <small *ngIf="fichier">{{ fichier.name }}</small>
+              <small class="text-muted">Le fichier est optionnel.</small>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions class="d-flex justify-content-end">
+    <button mat-button type="submit" (click)="onSubmit()" color="primary">
+      Publier
+    </button>
+    <button mat-button (click)="closeDialog()" color="warn">Annuler</button>
+  </mat-dialog-actions>
+</mat-dialog-content>
+ 

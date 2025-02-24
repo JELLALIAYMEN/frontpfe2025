@@ -1,0 +1,43 @@
+<mat-dialog-content class="mat-typography">
+    <div class="dialog-header">
+      <h3>Détails de l'élève</h3>
+    </div>
+  
+    <div class="details-container">
+      <div class="detail-field">
+        <mat-label>Nom</mat-label>
+        <span>{{data.nom}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Prénom</mat-label>
+        <span>{{data.prenom}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Matricule</mat-label>
+        <span>{{data.matricule}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Classe</mat-label>
+        <span>{{data.classe.nomclasse}}</span>
+      </div>
+
+      <div class="detail-field">
+        <mat-label>Libellé</mat-label>
+        <span>{{data.libelle}}</span>
+      </div>
+  
+      <div class="detail-field">
+        <mat-label>Adresse email</mat-label>
+        <span>{{data.email}}</span>
+      </div>
+  
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="action-buttons">
+    <button mat-button mat-dialog-close>Fermer</button>
+  </mat-dialog-actions>
+  

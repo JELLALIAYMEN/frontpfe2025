@@ -1,0 +1,27 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  mat-card-header {
+    background-color: #1d1d5c;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
+  }
+  
+  mat-card-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }

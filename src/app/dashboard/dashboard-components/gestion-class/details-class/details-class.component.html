@@ -1,0 +1,85 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Détails de la classe : {{ classDetails.name }}</h3>
+    </div>
+    <!-- Année scolaire -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Année scolaire</mat-label>
+    <input 
+      matInput 
+      [value]="classDetails.schoolYear" 
+      placeholder="Modifier l'année scolaire" 
+    />
+    <mat-icon matPrefix>date_range</mat-icon>
+  </mat-form-field>
+  
+    <!-- Modifier la capacité -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Capacité</mat-label>
+      <input 
+        matInput 
+        type="number" 
+        [value]="classDetails.capacity" 
+        placeholder="Modifier la capacité"
+      />
+      <mat-icon matPrefix>event_seat</mat-icon>
+    </mat-form-field>
+  
+    <!-- Gestion des élèves -->
+    <div class="section">
+      <h4>Élèves :</h4>
+  
+      <!-- Ajouter un élève -->
+      <div class="horizontal-container">
+        <mat-form-field appearance="outline" class="flex-input">
+          <mat-label>Ajouter un élève</mat-label>
+          <input matInput #newStudent placeholder="Nom de l'élève">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addStudent(newStudent.value); newStudent.value = '';">
+          Ajouter
+        </button>
+      </div>
+  
+      <!-- Liste des élèves -->
+      <ul class="list">
+        <li *ngFor="let student of classDetails.students" class="list-item">
+          <span>{{ student }}</span>
+          <button mat-icon-button color="warn" (click)="removeStudent(student)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Gestion des enseignants -->
+    <div class="section">
+      <h4>Enseignants :</h4>
+  
+      <!-- Ajouter un enseignant -->
+      <div class="horizontal-container">
+        <mat-form-field appearance="outline" class="flex-input">
+          <mat-label>Ajouter un enseignant</mat-label>
+          <input matInput #newTeacher placeholder="Nom de l'enseignant">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addTeacher(newTeacher.value); newTeacher.value = '';">
+          Ajouter
+        </button>
+      </div>
+  
+      <!-- Liste des enseignants -->
+      <ul class="list">
+        <li *ngFor="let teacher of classDetails.teachers" class="list-item">
+          <span>{{ teacher }}</span>
+          <button mat-icon-button color="warn" (click)="removeTeacher(teacher)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-dialog-close>Enregistrer</button>
+    <button mat-button [mat-dialog-close]="true" color="warn">Annuler</button>
+  </mat-dialog-actions>
+  

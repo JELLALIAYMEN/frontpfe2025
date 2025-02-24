@@ -1,0 +1,35 @@
+<!-- Container principal centré -->
+<div fxLayout="column" fxLayoutAlign="center center" class="main-container">
+  <!-- Cards -->
+  <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center start">
+    <div fxFlex="100%" *ngFor="let card of cards">
+      <mat-card class="class-card-container">
+        <div class="card-image-container">
+          <img src="{{ card.image }}" class="fixed-image" alt="Image de la classe">
+        </div>
+        <mat-card-content>
+          <div class="add-class-container">
+            <!-- Bouton pour ajouter une nouvelle classe avec icône -->
+            <button mat-raised-button color="primary" class="add-class-btn" (click)="openAddClass()">
+              <mat-icon>add</mat-icon> Nouvelle classe
+            </button>
+          </div>
+
+          <!-- Liste des classes -->
+          <div *ngIf="classes.length > 0">
+            <div class="class-cards">
+              <mat-card *ngFor="let classe of classes" class="class-card">
+                <mat-card-header>
+                  <mat-card-title>{{ classe.nomclasse }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p><strong>Département :</strong> {{ classe.departement?.nom }}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

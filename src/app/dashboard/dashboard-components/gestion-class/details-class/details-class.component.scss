@@ -1,0 +1,46 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .section {
+    margin-top: 20px;
+  }
+  
+  .list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .horizontal-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre le champ et le bouton */
+  }
+  
+  .flex-input {
+    flex: 1; /* Le champ occupe tout l'espace disponible */
+  }
+  
+  button {
+    white-space: nowrap;
+  }
+  .dialog-title {
+    font-size: 1.8rem; /* Taille de police légèrement augmentée */
+    font-weight: 600; /* Poids de police pour plus d'impact visuel */
+    color: #2c3e50; /* Couleur douce et professionnelle */
+    margin: 0; /* Supprimer les marges par défaut */
+  }

@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Gestion des réclamations</h2>
+  <!-- Tableau -->
+  <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-2">Elève</div>
+        <div class="col col-2">Enseignant</div>
+        <div class="col col-2">Résultat</div>
+        <div class="col col-2">Date</div>
+        <div class="col col-2">Actions</div>
+      </li>
+    
+      <!-- Itération sur la liste des utilisateurs -->
+      <li *ngFor="let rec of reclamations" class="table-row">
+        <div class="col col-2" data-label="Elève">{{ rec.user.nom }} {{ rec.user.prenom }}</div>
+        <div class="col col-2" data-label="Enseignant">{{rec.destinataire.nom}} {{rec.destinataire.prenom}}</div>
+        <div class="col col-2" data-label="Résultat">{{rec.resultat}}</div>
+        <div class="col col-2" data-label="Date">{{rec.date}}</div>
+        <div class="col col-2" data-label="Actions">
+          <button class="action-btn details-btn" (click)="detailReclamation(rec)">Détails</button>
+        </div>
+      </li>
+  </ul>   
+</div>

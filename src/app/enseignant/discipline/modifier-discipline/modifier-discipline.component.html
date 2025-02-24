@@ -1,0 +1,47 @@
+<mat-dialog-content class="mat-typography form-container" *ngIf="disciplineForm">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Modifier la discipline</h3>
+    </div>
+    <form [formGroup]="disciplineForm">
+  
+    <h2>{{data?.eleve.nom}} {{data?.eleve.prenom}}</h2>
+  
+    <!-- Cause -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cause</mat-label>
+      <textarea matInput placeholder="Entrez la cause de la discipline" formControlName="cause" rows="4" required></textarea>
+      <mat-icon matPrefix>announcement</mat-icon>
+    </mat-form-field>
+
+  
+
+    <!-- Affichage de la vidéo existante (si aucune nouvelle vidéo n'est sélectionnée) -->
+    <div *ngIf="!selectedVideoFile && existingVideoUrl">
+        <label>Vidéo actuelle :</label>
+        <video controls width="400">
+        <source [src]="existingVideoUrl" type="video/mp4" />
+        Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+    </div>
+
+    <!-- Sélectionner une nouvelle vidéo (sans mat-form-field) -->
+    <div class="video-upload-container">
+      <label for="video-file">Choisir une nouvelle vidéo :</label>
+      <input id="video-file" type="file" (change)="onFileSelected($event)" accept="video/*" />
+    </div>
+
+    <!-- Preview vidéo de la nouvelle vidéo -->
+    <div *ngIf="selectedVideoPreviewUrl">
+        <label>Aperçu de la vidéo sélectionnée :</label>
+        <video controls width="400">
+          <source [src]="selectedVideoPreviewUrl" type="video/mp4" />
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+    </div>
+
+    <div mat-dialog-actions class="action-buttons">
+      <button mat-raised-button color="primary" (click)="modifierDiscipline()">Modifier</button>
+      <button mat-button color="warn" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</mat-dialog-content>

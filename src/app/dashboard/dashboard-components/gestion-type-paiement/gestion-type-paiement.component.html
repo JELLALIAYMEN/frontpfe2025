@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Gestion De Type de Paiement</h2>
+    <!-- Tableau -->
+    <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-2">Type Paiement</div>
+          <div class="col col-2">Prix</div>
+          <div class="col col-2">Action</div>
+
+        </li>
+      
+        <!-- Itération sur la liste des utilisateurs -->
+        <li *ngFor="let t of alltype" class="table-row">
+          <div class="col col-2" data-label="Elève">{{ t.type }}</div>
+          <div class="col col-2" data-label="Enseignant">{{t.prix}}</div>
+          <div class="col col-2" data-label="Actions">
+            <button class="action-btn details-btn">Détails</button>
+          </div>
+        </li>
+    </ul>   
+  </div>
+  

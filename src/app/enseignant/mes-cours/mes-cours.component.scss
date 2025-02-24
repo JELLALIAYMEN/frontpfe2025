@@ -1,0 +1,123 @@
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* Étape de formulaire */
+.form-step {
+    margin-bottom: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+    margin-right: 4%;
+  }
+  
+  .step-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .previous-posts-section {
+    margin-top: 40px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .post-cards-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-card {
+    display: flex;
+    justify-content: space-between;
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-icon {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-content {
+    flex: 1;
+    margin-left: 15px;
+  }
+  
+  .post-content h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .post-content p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .post-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  button {
+    margin: 5px 0;
+  }
+h2 {
+  margin: 20px;
+  font-size: 2rem; 
+  color: #1d1d5c; 
+  font-weight: bold;
+  text-transform: uppercase; 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+h3 {
+  margin: 15px;
+  font-size: 1.5rem;
+  color: #1d1d5c;
+  font-weight: 600;
+  text-transform: capitalize; 
+}
+
+h4 {
+  margin: 10px;
+  font-size: 1.2rem;
+  color: #1d1d5c; 
+  font-weight: normal;
+  font-style: italic; 
+  font-weight: 600;
+}
+
+/* Ajout d'un effet global pour le conteneur de la carte */
+.card-img-overlay {
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour un effet "carte" */
+}
+h2, h3, h4 {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+h2:hover, h3:hover, h4:hover {
+  transform: scale(1.05); /* Agrandir légèrement au survol */
+  color: #333; /* Changer la couleur au survol */
+}

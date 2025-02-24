@@ -1,0 +1,30 @@
+<mat-dialog-content class="mat-typography form-container">
+    <div class="dialog-header">
+      <h3 class="dialog-title">Modifier la salle</h3>
+    </div>
+  
+    <!-- Formulaire -->
+    <form [formGroup]="salleForm">
+      <!-- Nom de la salle -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom de la salle</mat-label>
+        <input matInput formControlName="nomdesalle" placeholder="Nom de la salle">
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+  
+      <!-- Département -->
+      <!-- <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Département</mat-label>
+        <mat-select formControlName="departement">
+          <mat-option *ngFor="let dep of departements" [value]="dep.nom">{{ dep.nom }}</mat-option>
+        </mat-select>
+        <mat-icon matPrefix>building</mat-icon>
+      </mat-form-field> -->
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="action-buttons">
+    <button mat-raised-button color="primary" (click)="saveChanges()">Enregistrer</button>
+    <button mat-button (click)="closeDialog()" color="warn">Annuler</button>
+  </mat-dialog-actions>
+  

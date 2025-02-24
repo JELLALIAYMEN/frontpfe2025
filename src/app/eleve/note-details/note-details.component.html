@@ -1,0 +1,48 @@
+<h1 mat-dialog-title class="dialog-title">
+    <mat-icon>note_alt</mat-icon>
+    Détails des Notes
+  </h1>
+  
+  <div mat-dialog-content class="dialog-content">
+    <!-- Sélecteur de trimestre -->
+    <div class="trimester-select">
+      <h3>Sélectionnez un trimestre</h3>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Trimestre</mat-label>
+        <mat-select [(value)]="selectedTrimester" (selectionChange)="loadNotes()">
+          <mat-option *ngFor="let trimester of trimesters" [value]="trimester">
+            {{ trimester }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <!-- Liste des notes -->
+    <div class="notes-section" *ngIf="notes.length > 0; else noNotes">
+      <h3>Liste des notes</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let note of notes">
+          <mat-icon mat-list-icon>grade</mat-icon>
+          <p mat-line>
+            <strong>{{ note.typeNote | readableEnum }}</strong>
+          </p>
+          <p mat-line>
+            <strong>Valeur:</strong> {{ note.noteValue }} |
+            <strong>Coefficient:</strong> {{ note.coff }}
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  
+    <ng-template #noNotes>
+      <div class="empty-state">
+        <mat-icon>info</mat-icon>
+        <p>Aucune note trouvée pour le trimestre sélectionné.</p>
+      </div>
+    </ng-template>
+  </div>
+  
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Fermer</button>
+  </div>
+  

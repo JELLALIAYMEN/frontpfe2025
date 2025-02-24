@@ -1,0 +1,25 @@
+<mat-dialog-content class="mat-typography">
+    <div class="dialog-header">
+      <h3>Envoyer votre réponse</h3>
+    </div>
+  
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Votre réponse</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="reponse"
+        placeholder="Entrez votre réponse ici"
+        rows="5"
+        [disabled]="isLoading"
+      ></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="action-buttons">
+    <button mat-button mat-dialog-close [disabled]="isLoading">Fermer</button>
+    <button mat-button color="primary" (click)="repondre()" [disabled]="isLoading">
+      <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+      <span *ngIf="!isLoading">Envoyer</span>
+    </button>
+  </mat-dialog-actions>
+  

@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Détails de la discipline</h2>
+<mat-dialog-content>
+  <p><strong>Élève :</strong> {{ data.eleve.nom }} {{ data.eleve.prenom }}</p>
+  <p><strong>Raison :</strong> {{ data.cause }}</p>
+  <p><strong>Date :</strong> {{ data.date }}</p>
+  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Statut</mat-label>
+    <mat-select [(ngModel)]="status">
+      <mat-option value="APPROVED">Approuvé</mat-option>
+      <mat-option value="REJECTED">Rejeté</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Commentaires ou Réponses</mat-label>
+    <textarea matInput [(ngModel)]="response" placeholder="Entrez votre commentaire ici..."></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [disabled]="!status || !response" (click)="submit()">
+    Envoyer
+  </button>
+  <button mat-raised-button mat-dialog-close>Annuler</button>
+</mat-dialog-actions>
