@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionClassComponent } from './gestion-class.component';
+import { AddSalleComponent } from './add-salle.component';
 
-describe('GestionClassComponent', () => {
-  let component: GestionClassComponent;
-  let fixture: ComponentFixture<GestionClassComponent>;
+describe('AddSalleComponent', () => {
+  let component: AddSalleComponent;
+  let fixture: ComponentFixture<AddSalleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GestionClassComponent ]
+      declarations: [ AddSalleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GestionClassComponent);
+    fixture = TestBed.createComponent(AddSalleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

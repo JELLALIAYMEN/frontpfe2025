@@ -1,0 +1,54 @@
+/* Style général pour le container du dialog */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Style pour l'affichage des détails du module */
+.details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.detail-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-field mat-label {
+  font-weight: bold;
+}
+
+.detail-field span {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Bouton "Affecter à" */
+.affecter-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.affecter-container button {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.affecter-container button:hover {
+  background-color: #303f9f
+}

@@ -14,10 +14,13 @@ export class ClasseService {
     addClass(classe: any): Observable<any> {
       return this.http.post<any>(`${environment.BASE_URL}/classe/ajouter`,classe);
     }
-    allClasses(): Observable<any> {
-      return this.http.get<any>(`${environment.BASE_URL}/classe/afficher`);
-    }
+
     countClasses(): Observable<any> {
       return this.http.get<any>(`${environment.BASE_URL}/classe/count-classes`);
     }
+
+
+  allClasses(): Observable<any> {
+    return this.http.get<any>(`${environment.BASE_URL}/classe/afficher`);
+  }
 }

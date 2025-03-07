@@ -12,8 +12,8 @@ export class LoginComponent {
   message = '';
   token = '';
   role = '';
-  matricule='';
-  hide: boolean = true;  
+
+  hide: boolean = true;
   constructor(private authService: AuthService) {}
 
   login() {
@@ -21,12 +21,12 @@ export class LoginComponent {
       (response) => {
         this.token = response.token;
 
-        this.matricule = response.matricule;
+
         this.role = response.role;
         this.message = response.message;
         localStorage.setItem('isLoggedIn', 'true'); // Store isLoggedIn as true
         localStorage.setItem('token', this.token); // Stockez le token pour une utilisation future
-        localStorage.setItem('matricule', this.matricule); // Stockez le token pour une utilisation future
+         // Stockez le token pour une utilisation future
 
 
         console.log('Login successful:', response);

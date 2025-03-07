@@ -1,0 +1,38 @@
+
+<div class="container">
+  <h2>Ajouter une salle</h2>
+
+  <form [formGroup]="salleForm" (ngSubmit)="ajouterSalle()">
+    <div class="form-group">
+      <label for="nomdesalle">Nom de la salle</label>
+      <input
+        type="text"
+        id="nomdesalle"
+        formControlName="nomdesalle"
+        class="form-control"
+        placeholder="Entrez le nom de la salle"
+        [ngClass]="{'is-invalid': salleForm.get('nomdesalle')?.invalid && salleForm.get('nomdesalle')?.touched}"
+      />
+      <div *ngIf="salleForm.get('nomdesalle')?.invalid && salleForm.get('nomdesalle')?.touched" class="invalid-feedback">
+        Ce champ est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="salleType">Type de salle</label>
+      <select id="salleType" formControlName="salleType" class="form-control">
+        <option value="" disabled selected>Choisissez un type</option>
+        <option value="amphitheatre">Amphithéâtre</option>
+        <option value="laboratoire">Laboratoire</option>
+        <option value="salle_classe">Salle de classe</option>
+      </select>
+      <div *ngIf="salleForm.get('salleType')?.invalid && salleForm.get('salleType')?.touched" class="invalid-feedback">
+        Veuillez sélectionner un type de salle.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="salleForm.invalid">
+      Ajouter
+    </button>
+  </form>
+</div>

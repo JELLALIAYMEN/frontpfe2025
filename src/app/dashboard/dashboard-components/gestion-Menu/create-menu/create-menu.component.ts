@@ -10,7 +10,7 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class CreateMenuComponent {
   menuForm: FormGroup;
-  typemenuOptions = ['Apporter', 'Reserver'];
+  typemenuOptions = ['cantine','Panier'];
   joursOptions = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
   constructor(

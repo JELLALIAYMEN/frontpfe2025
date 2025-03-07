@@ -3,7 +3,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 
 import { EnseignantRoutingModule } from './enseignant-routing.module';
 import { MesCoursComponent } from './mes-cours/mes-cours.component';
-import { DashboardModule } from '../dashboard/dashboard.module';
+
 import { TawasalnaModule } from '../tawasalna-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCoursComponent } from './add-cours/add-cours.component';
@@ -16,6 +16,16 @@ import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { DetailsReclamationComponent } from './reclamations/details-reclamation/details-reclamation.component';
 import { ReponseComponent } from './reclamations/reponse/reponse.component';
+
+import {AddModuleComponent} from "../dashboard/dashboard-components/gestion-module/add-module/add-module.component";
+import {
+  DeleteModuleComponent
+} from "../dashboard/dashboard-components/gestion-module/delete-module/delete-module.component";
+import {
+  DetailModuleComponent
+} from "../dashboard/dashboard-components/gestion-module/detail-module/detail-module.component";
+import { DashboardModule } from '../dashboard/dashboard.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -30,8 +40,13 @@ import { ReponseComponent } from './reclamations/reponse/reponse.component';
     ActualitesComponent,
     DetailsReclamationComponent,
     ReponseComponent,
+    AddModuleComponent,
+    DeleteModuleComponent,
+    DetailModuleComponent,
+
   ],
   imports: [
+    MatDialogModule,
     CommonModule,
     ReactiveFormsModule,
     EnseignantRoutingModule,

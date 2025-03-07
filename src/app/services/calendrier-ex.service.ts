@@ -13,10 +13,10 @@ export class CalendrierExService {
 
   constructor(private http: HttpClient) {}
   ccreerCalendrier(
-    calendrier: any, 
-    email: string, 
-    salles: string, 
-    matiere: string, 
+    calendrier: any,
+    email: string,
+    salles: string,
+    matiere: string,
     classe: string,
     typecalendrier: string,
     t: string
@@ -43,9 +43,9 @@ export class CalendrierExService {
     });
   }
   envoyeremail(
-    email: string, 
-    classe: string, 
-    trimestre: string, 
+    email: string,
+    classe: string,
+    trimestre: string,
     typecalendrier: string,
   )
     : Observable<any> {
@@ -57,3 +57,4 @@ export class CalendrierExService {
     return this.http.post(`${environment.BASE_URL}/calendrier/envoyeremail`, null, { params,  responseType: 'text'   })
   }
 }
+

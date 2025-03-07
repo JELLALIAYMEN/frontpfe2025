@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TawasalnaModule } from '../tawasalna-module'
-import { DashboardComponent } from './dashboard.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgApexchartsModule } from 'ng-apexcharts';
+
+
+
+
 import { StatisticsComponent } from './dashboard-components/statistics/statistics.component';
 import { GestionEnseignantsComponent } from './dashboard-components/gestion-enseignants/gestion-enseignants.component';
 import { GestionElevesComponent } from './dashboard-components/gestion-eleves/gestion-eleves.component';
@@ -11,7 +13,7 @@ import { AddEnseignantComponent } from './dashboard-components/gestion-enseignan
 import { AddEleveComponent } from './dashboard-components/gestion-eleves/add-eleve/add-eleve.component';
 import { GestionParentsComponent } from './dashboard-components/gestion-parents/gestion-parents.component';
 import { AddParentComponent } from './dashboard-components/gestion-parents/add-parent/add-parent.component';
-import { DetailsEnseigantComponent } from './dashboard-components/gestion-enseignants/details-enseigant/details-enseigant.component';
+//import { DetailsEnseigantComponent } from './dashboard-components/gestion-enseignants/details-enseigant/details-enseigant.component';
 import { ModifierEnseignantComponent } from './dashboard-components/gestion-enseignants/modifier-enseignant/modifier-enseignant.component';
 import { ConfirmationSuppressionComponent } from './dashboard-components/gestion-enseignants/confirmation-suppression/confirmation-suppression.component';
 import { ModifierEleveComponent } from './dashboard-components/gestion-eleves/modifier-eleve/modifier-eleve.component';
@@ -21,22 +23,22 @@ import { ConfirmationDeleteParentComponent } from './dashboard-components/gestio
 import { DetailsParentComponent } from './dashboard-components/gestion-parents/details-parent/details-parent.component';
 import { ModifierParentComponent } from './dashboard-components/gestion-parents/modifier-parent/modifier-parent.component';
 import { GestionActualitesComponent } from './dashboard-components/gestion-actualites/gestion-actualites.component';
-import { GestionClassComponent } from './dashboard-components/gestion-class/gestion-class.component';
-import { AddClassComponent } from './dashboard-components/gestion-class/add-class/add-class.component';
-import { DetailsClassComponent } from './dashboard-components/gestion-class/details-class/details-class.component';
+//import { GestionClassComponent } from './dashboard-components/gestion-class/gestion-class.component';
+import { MatDialogModule } from '@angular/material/dialog';
+//import { DetailsClassComponent } from './dashboard-components/gestion-class/details-class/details-class.component';
 import { GestionReclamationComponent } from './dashboard-components/gestion-reclamation/gestion-reclamation.component';
 import { GestionDisciplineComponent } from './dashboard-components/gestion-discipline/gestion-discipline.component';
 import { AssignerElevesComponent } from './dashboard-components/gestion-parents/assigner-eleves/assigner-eleves.component';
 import { HomeParentComponent } from './dashboard-components/home-parent/home-parent.component';
 import { HomeEnseignantComponent } from '../enseignant/home-enseignant/home-enseignant.component';
 import { HomeEleveComponent } from '../eleve/home-eleve/home-eleve.component';
-import { GestionSallesComponent } from './dashboard-components/gestion-salles/gestion-salles.component';
-import { ModiferSalleComponent } from './dashboard-components/gestion-salles/modifer-salle/modifer-salle.component';
+//import { GestionSallesComponent } from './dashboard-components/gestion-salles/gestion-salles.component';
+//import { ModiferSalleComponent } from './dashboard-components/gestion-salles/modifer-salle/modifer-salle.component';
 import { GestionMatiereComponent } from './dashboard-components/gestion-matiere/gestion-matiere.component';
 import { HomeMoyenneEtNoteComponent } from './dashboard-components/GestionMoyenneEtNote/home-moyenne-et-note/home-moyenne-et-note.component';
 import { NotesDetailsComponent } from './dashboard-components/GestionMoyenneEtNote/notes-details/notes-details.component';
 import { SharedModule } from '../shared/shared.module';
-import { ProfileComponent } from '../parent/profile/profile.component';
+
 import { CreateMenuComponent } from './dashboard-components/gestion-Menu/create-menu/create-menu.component';
 import { AcceuilComponent } from './dashboard-components/gestion-Menu/acceuil/acceuil.component';
 import { ListeDesMenuComponent } from './dashboard-components/gestion-Menu/liste-des-menu/liste-des-menu.component';
@@ -63,9 +65,28 @@ import { AjoutTypePaiementComponent } from './dashboard-components/gestion-type-
 import { GestionCreditComponent } from './dashboard-components/gestion-credit/gestion-credit.component';
 import { AjoutCreditComponent } from './dashboard-components/gestion-credit/ajout-credit/ajout-credit.component';
 
+
+import {ProfileComponent} from "../parent/profile/profile.component";
+import { AddSalleComponent } from './dashboard-components/gestion-salles/add-salle/add-salle.component';
+import { ModifeSalleComponent } from './dashboard-components/gestion-salles/modife-salle/modife-salle.component';
+import { AddClassComponent } from './dashboard-components/gestion-class/add-class/add-class.component';
+//import { DetailsMoodulesComponent } from './dashboard-components/gestion-module/details-moodules/details-moodules.component';
+import { UpdateModuleComponent } from './dashboard-components/gestion-module/update-module/update-module.component';
+import { DeleteModuleComponent } from './dashboard-components/gestion-module/delete-module/delete-module.component';
+import { DetailModuleComponent } from './dashboard-components/gestion-module/detail-module/detail-module.component';
+import { EmailDialogComponentComponent } from './dashboard-components/email-dialog-component/email-dialog-component.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './dashboard.component';
+// Import other necessary modules
+
+//import { DashboardComponent } from './dashboard.component';
+
+//import { AddSousclassComponent } from './dashboard-components/gestion-class/add-sousclass/add-sousclass.component';
 @NgModule({
   declarations: [
     DashboardComponent,
+
     StatisticsComponent,
     GestionEnseignantsComponent,
     GestionElevesComponent,
@@ -73,27 +94,28 @@ import { AjoutCreditComponent } from './dashboard-components/gestion-credit/ajou
     AddEleveComponent,
     GestionParentsComponent,
     AddParentComponent,
-    DetailsEnseigantComponent,
+
     ModifierEnseignantComponent,
     ConfirmationSuppressionComponent,
     ModifierEleveComponent,
     DetailsEleveComponent,
-    ConfirmationDeleteEleveComponent,
     ConfirmationDeleteParentComponent,
     DetailsParentComponent,
     ModifierParentComponent,
     GestionActualitesComponent,
-    GestionClassComponent,
+    EmailDialogComponentComponent,
     AddClassComponent,
-    DetailsClassComponent,
+    DetailModuleComponent,
     GestionReclamationComponent,
     GestionDisciplineComponent,
     AssignerElevesComponent,
+    AssaignerHomeworkComponent,
     HomeParentComponent,
     HomeEnseignantComponent,
+
     HomeEleveComponent,
-    GestionSallesComponent,
-    ModiferSalleComponent,
+    //GestionSallesComponent,
+    //ModiferSalleComponent,
     GestionMatiereComponent,
     HomeMoyenneEtNoteComponent,
     NotesDetailsComponent,
@@ -104,6 +126,8 @@ import { AjoutCreditComponent } from './dashboard-components/gestion-credit/ajou
     ModiferMenuComponent,
     DetaillsDisciplineComponent,
     AddActualiteComponent,
+    AddSalleComponent,
+    ModifeSalleComponent,
     GestionPaiementComponent,
     AddMatiereComponent,
     DetailsReclamationComponent,
@@ -122,21 +146,32 @@ import { AjoutCreditComponent } from './dashboard-components/gestion-credit/ajou
     GestionTypePaiementComponent,
     AjoutTypePaiementComponent,
     GestionCreditComponent,
-    AjoutCreditComponent
+    AjoutCreditComponent,
+    AddSalleComponent,
+    ModifeSalleComponent,
+    AddClassComponent,
+
+
+
+    EmailDialogComponentComponent
+  ],
+  exports: [
+
+    HomeEnseignantComponent,
+    HomeEleveComponent,
+    ProfileComponent,
+    DashboardComponent,
+
+
   ],
   imports: [
     CommonModule,
     TawasalnaModule,
-    NgApexchartsModule,
+    MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
     RouterModule
-  ],
-  exports: [
-    DashboardComponent,
-    HomeEnseignantComponent,
-    HomeEleveComponent
   ]
 })
 export class DashboardModule { }

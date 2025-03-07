@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { ClasseService } from 'src/app/services/classe.service';
+import {UserService} from "../../../../services/user.service";
 
 @Component({
   selector: 'app-add-eleve',
@@ -17,6 +18,7 @@ export class AddEleveComponent implements OnInit {
     private authService: AuthService,
     private dialogRef: MatDialogRef<AddEleveComponent>,
     private classService: ClasseService,
+
     private fb: FormBuilder
   ) {}
 
@@ -57,11 +59,14 @@ export class AddEleveComponent implements OnInit {
     console.log('Formulaire:', this.userForm.value);
 
     const user = this.userForm.value;
-    const nomclasse = this.userForm.get('nomclasse')?.value; 
-    const matricule = this.userForm.get('matricule')?.value; 
+    const nomclasse = this.userForm.get('nomclasse')?.value;
+    const matricule = this.userForm.get('matricule')?.value;
 
 
-    this.authService.addEleve(user, nomclasse, matricule).subscribe({
+    this.authService.addEleve(nomclasse,matricule).subscribe({
+     // .userService
+    // .addUser(user).subscribe({
+    // .addEleve(nomclasse,matricule).subscribe({
       next: (response) => {
         console.log('Utilisateur ajouté avec succès', response);
         this.dialogRef.close('Utilisateur ajouté');

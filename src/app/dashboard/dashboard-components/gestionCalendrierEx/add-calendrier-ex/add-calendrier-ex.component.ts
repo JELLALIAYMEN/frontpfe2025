@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CalendrierExService } from 'src/app/services/calendrier-ex.service';
@@ -64,6 +64,7 @@ export class AddCalendrierExComponent implements OnInit {
       this.isLoading = true;
 
       this.calendrierExSer.ccreerCalendrier(
+
         {
           date: formValues.date,
           nomjour: formValues.nomjour,
@@ -112,7 +113,7 @@ export class AddCalendrierExComponent implements OnInit {
     this.dialogRef.close('Annulé');
   }
   getAllSalles(): void {
-    this.salleService.afficherSalles().subscribe({
+    this.salleService.getSalles().subscribe({
       next: (response) => {
         this.salles = response;
         console.log('Salles récupérées:', response);

@@ -4,7 +4,7 @@
     Ajouter Staff
 </button>
 <div class="container">
-    <h2>Gestion des Enseignants</h2>
+    <h2>Gestion des   Staffs </h2>
     <!-- Barre de recherche et filtres -->
     <div class="filters">
       <input
@@ -22,7 +22,7 @@
           <div class="col col-2">E-mail</div>
           <div class="col col-4">Actions</div>
         </li>
-      
+
         <!-- Itération sur la liste des utilisateurs -->
         <li *ngFor="let user of filtredEnseignants" class="table-row">
           <div class="col col-2" data-label="Nom">{{ user.nom }} {{ user.prenom }}</div>
@@ -33,5 +33,5 @@
             <button class="action-btn delete-btn" (click)="openConfirmationDialog(user.id)">Supprimer</button>
           </div>
         </li>
-    </ul>   
+    </ul>
 </div>

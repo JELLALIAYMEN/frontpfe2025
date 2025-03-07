@@ -13,10 +13,10 @@ export class EmploiDuTempsService {
   emplois$ = this.emploisSubject.asObservable();
 
   creerEmploi(
-    Emploidetemps: any, 
-    email: string, 
-    salle: string, 
-    matiere: string, 
+    Emploidetemps: any,
+    email: string,
+    salle: string,
+    matiere: string,
     classe: string): Observable<any> {
     const params = new HttpParams()
       .set('email', email)
@@ -28,7 +28,7 @@ export class EmploiDuTempsService {
       tap(() => {
         this.allEmploi();
       })
-    );;
+    );
   }
 
   envoyerEmail(emailDestinataire: string, classe: string): Observable<any> {

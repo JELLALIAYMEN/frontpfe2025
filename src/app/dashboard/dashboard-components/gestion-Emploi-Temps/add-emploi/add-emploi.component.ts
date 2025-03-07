@@ -5,6 +5,7 @@ import { ClasseService } from 'src/app/services/classe.service';
 import { EmploiDuTempsService } from 'src/app/services/emploi-du-temps.service';
 import { MatieresService } from 'src/app/services/matieres.service';
 import { SallesService } from 'src/app/services/salles.service';
+import {SousclassService} from "../../../../services/sous-classe-service.service";
 
 @Component({
   selector: 'app-add-emploi',
@@ -21,10 +22,11 @@ export class AddEmploiComponent {
     private emploiService: EmploiDuTempsService,
     private fb: FormBuilder,
     private classService: ClasseService,
+    private    sousclassService:SousclassService,
     private dialogRef: MatDialogRef<AddEmploiComponent>,
     private salleService: SallesService,
     private matiereService: MatieresService
-    
+
   ) {}
 
   ngOnInit(): void {
@@ -69,11 +71,11 @@ export class AddEmploiComponent {
 
       // Appel au service pour créer l'emploi
       this.emploiService.creerEmploi(
-        emploi,  
-        formValues.email,  
-        formValues.salle,  
-        formValues.matiere,  
-        formValues.classe  
+        emploi,
+        formValues.email,
+        formValues.salle,
+        formValues.matiere,
+        formValues.classe
       ).subscribe({
         next: (response) => {
           switch (response) {
@@ -109,7 +111,7 @@ export class AddEmploiComponent {
     this.dialogRef.close('Annulé');
   }
   getAllSalles(): void {
-    this.salleService.afficherSalles().subscribe({
+    this.salleService.getSalles().subscribe({
       next: (response) => {
         this.salles = response;
         console.log('Salles récupérées:', response);

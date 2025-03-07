@@ -1,0 +1,25 @@
+<mat-dialog-content class="mat-typography">
+  <h3 class="dialog-title">Détails du Module</h3>
+
+  <div class="module-details">
+    <p><strong>Nom du Module:</strong> {{ data.nommodule }}</p>
+    <p><strong>Matricule:</strong> {{ data.matricule }}</p>
+    <p><strong>Contenu:</strong> {{ data.contenue }}</p>
+    <p><strong>Date:</strong> {{ data.date }}</p>
+    <p><strong>Travail à faire:</strong> {{ data.travailafaire }}</p>
+  </div>
+
+  <h4>Liste de tous les modules disponibles :</h4>
+  <ul>
+    <li *ngFor="let module of modules">
+      {{ module.nommodule }} - {{ module.matricule }}
+    </li>
+  </ul>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="warn" (click)="close()">Fermer</button>
+</mat-dialog-actions>
+
+
+

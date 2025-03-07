@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
+
+
 import { GestionEnseignantsComponent } from './dashboard/dashboard-components/gestion-enseignants/gestion-enseignants.component';
 import { GestionElevesComponent } from './dashboard/dashboard-components/gestion-eleves/gestion-eleves.component';
 import { GestionParentsComponent } from './dashboard/dashboard-components/gestion-parents/gestion-parents.component';
 import { GestionActualitesComponent } from './dashboard/dashboard-components/gestion-actualites/gestion-actualites.component';
-import { GestionClassComponent } from './dashboard/dashboard-components/gestion-class/gestion-class.component';
+//import { GestionClassComponent } from './dashboard/dashboard-components/gestion-class/gestion-class.component';
 import { GestionReclamationComponent } from './dashboard/dashboard-components/gestion-reclamation/gestion-reclamation.component';
 import { GestionDisciplineComponent } from './dashboard/dashboard-components/gestion-discipline/gestion-discipline.component';
 import { HomeEnseignantComponent } from './enseignant/home-enseignant/home-enseignant.component';
-import { GestionSallesComponent } from './dashboard/dashboard-components/gestion-salles/gestion-salles.component';
+//import { GestionSallesComponent } from './dashboard/dashboard-components/gestion-salles/gestion-salles.component';
 import { GestionMatiereComponent } from './dashboard/dashboard-components/gestion-matiere/gestion-matiere.component';
 import { HomeMoyenneEtNoteComponent } from './dashboard/dashboard-components/GestionMoyenneEtNote/home-moyenne-et-note/home-moyenne-et-note.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -28,10 +30,15 @@ import { AssaignerHomeworkComponent } from './dashboard/dashboard-components/ges
 import { GestionTypePaiementComponent } from './dashboard/dashboard-components/gestion-type-paiement/gestion-type-paiement.component';
 import { GestionCreditComponent } from './dashboard/dashboard-components/gestion-credit/gestion-credit.component';
 import { AjoutCreditComponent } from './dashboard/dashboard-components/gestion-credit/ajout-credit/ajout-credit.component';
+import {AddSalleComponent} from "./dashboard/dashboard-components/gestion-salles/add-salle/add-salle.component";
+import {AddClassComponent} from "./dashboard/dashboard-components/gestion-class/add-class/add-class.component";
+import {
+  DetailModuleComponent
+} from "./dashboard/dashboard-components/gestion-module/detail-module/detail-module.component";
 
 const routes: Routes = [
   {
-    path : 'auth', loadChildren:() => 
+    path : 'auth', loadChildren:() =>
       import('./authentification/authentification.module').then(
         (m) => m.AuthentificationModule
       )
@@ -41,7 +48,7 @@ const routes: Routes = [
   },
   {
     path : 'eleve',
-    component:NavbarComponent,loadChildren:() => 
+    component:NavbarComponent,loadChildren:() =>
       import('./eleve/eleve.module').then(
         (m) => m.EleveModule
       ),
@@ -49,7 +56,7 @@ const routes: Routes = [
   },
   {
     path : 'parent',
-    component:NavbarComponent,loadChildren:() => 
+    component:NavbarComponent,loadChildren:() =>
       import('./parent/parent.module').then(
         (m) => m.ParentModule
       ),
@@ -57,14 +64,14 @@ const routes: Routes = [
   },
   {
     path : 'enseignant',
-    component:NavbarComponent,loadChildren:() => 
+    component:NavbarComponent,loadChildren:() =>
       import('./enseignant/enseignant.module').then(
         (m) => m.EnseignantModule
       ),
       canActivate: [authGuard, EnseignantGuard]
   },
   {
-    path : 'shared',loadChildren:() => 
+    path : 'shared',loadChildren:() =>
       import('./shared/shared.module').then(
         (m) => m.SharedModule
       ),
@@ -83,18 +90,20 @@ const routes: Routes = [
       {path:"eleves", component:GestionElevesComponent},
       {path:"parents", component:GestionParentsComponent},
       {path:"actualites", component:GestionActualitesComponent},
-      {path:"classes", component:GestionClassComponent},
+      {path:"classes", component:AddClassComponent},
+
       {path:"reclamations", component:GestionReclamationComponent},
       {path:"discipline", component:GestionDisciplineComponent},
       {path:"home-enseignant", component:HomeEnseignantComponent},
       {path:"home", component:DashboardComponent},
-      {path:"salles-departements", component:GestionSallesComponent},
+      {path:"salles", component:AddSalleComponent},
       {path:"moyennes-notes/:id", component:HomeMoyenneEtNoteComponent},
       {path:"gestion-menu", component:AcceuilComponent},
       {path:"matieres", component:GestionMatiereComponent},
       {path:"calendrier-examen", component:GestionCalendrierExComponent},
       {path:"emploi-temps", component:GestionEmploiTempsComponent},
       {path:"module", component:GestionModuleComponent},
+      {path:"", component:DetailModuleComponent},
 
 
     ],

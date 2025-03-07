@@ -16,28 +16,48 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { JwtInterceptor } from './JwtInterceptor';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FullComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserAnimationsModule,
     FeatherModule.pick(allIcons),
     TawasalnaModule,
     DashboardModule,
     FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor, 
+      useClass: JwtInterceptor,
       multi: true
     }
   ],

@@ -28,10 +28,12 @@ export class EnvoyerEmploiComponent {
    * Récupère la liste des élèves en fonction de la classe.
    */
   fetchElevesByClass(): void {
+    console.log('Classe envoyée:', this.data.classe.nomclasse); // Vérifiez la classe ici
+
     this.utilisateurService.getElevesByClass(this.data.classe.nomclasse).subscribe(
       (data: any[]) => {
         this.eleves = data;
-        console.log(this.eleves); 
+        console.log('Élèves récupérés:', this.eleves);
       },
       (error) => {
         console.error('Erreur de récupération des élèves:', error);
@@ -39,17 +41,19 @@ export class EnvoyerEmploiComponent {
     );
   }
 
+
+
   /**
    * Parcourt la liste des élèves et leur envoie un email.
    */
   confirmLenvoie(): void {
     if (this.eleves && this.eleves.length > 0) {
       this.isLoading = true;
-      
+
       // Boucle pour envoyer l'email à chaque élève
       this.eleves.forEach((eleve) => {
         this.emploiSer.envoyerEmail(
-          eleve.email, 
+          eleve.email,
           this.data.classe.nomclasse,
         ).subscribe({
           next: (response) => {

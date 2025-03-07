@@ -41,7 +41,7 @@ export class ModifierEleveComponent implements OnInit{
       next: (response) => {
         this.classes = response;
         console.log('Classes récupérées:', this.classes);
-  
+
         // Définir la valeur par défaut après le chargement des classes
         if (this.data.classe) {
           this.eleveForm.get('classe')?.setValue(this.data.classe.id);
@@ -52,6 +52,7 @@ export class ModifierEleveComponent implements OnInit{
       }
     });
   }
+
   saveChanges(): void {
     if (this.eleveForm.valid) {
       const updatedEleve = this.eleveForm.value;

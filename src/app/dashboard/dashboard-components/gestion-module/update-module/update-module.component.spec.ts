@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModiferSalleComponent } from './modifer-salle.component';
+import { UpdateModuleComponent } from './update-module.component';
 
-describe('ModiferSalleComponent', () => {
-  let component: ModiferSalleComponent;
-  let fixture: ComponentFixture<ModiferSalleComponent>;
+describe('UpdateModuleComponent', () => {
+  let component: UpdateModuleComponent;
+  let fixture: ComponentFixture<UpdateModuleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModiferSalleComponent ]
+      declarations: [ UpdateModuleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModiferSalleComponent);
+    fixture = TestBed.createComponent(UpdateModuleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

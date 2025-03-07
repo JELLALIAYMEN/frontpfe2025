@@ -1,33 +1,69 @@
-<mat-dialog-content class="mat-typography form-container">
-  <div class="dialog-header">
-    <h3 class="dialog-title">Ajouter une nouvelle classe</h3>
-  </div> 
-  <form [formGroup]="classeForm" (ngSubmit)="onSubmit()"> 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nom de la classe</mat-label>
-      <input matInput placeholder="Entrez le nom" formControlName="nomclasse" required>
-      <mat-icon matPrefix>class</mat-icon>
-      <mat-error *ngIf="classeForm.get('nomclasse')?.invalid">
+<!-- add-class.component.html -->
+<div class="container">
+  <h2>Ajouter une classe</h2>
+
+  <form [formGroup]="classeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nomclasse">Nom de la classe</label>
+      <input
+        type="text"
+        id="nomclasse"
+        formControlName="nomclasse"
+        class="form-control"
+        placeholder="Nom de la classe"
+      />
+      <div *ngIf="classeForm.get('nomclasse')?.invalid && classeForm.get('nomclasse')?.touched" class="text-danger">
         Le nom de la classe est requis.
-      </mat-error>
-    </mat-form-field>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nomssousclasse">Sous-classe</label>
+      <select
+        id="nomssousclasse"
+        formControlName="nomssousclasse"
+        class="form-control"
+        [ngClass]="{'is-invalid': classeForm.get('nomsclasse')?.invalid && classeForm.get('nomsclasse')?.touched}"
+      >
+        <option value="" disabled selected>Choisir une classe</option>
+        <option *ngFor="let sousClasse of sousClasses" [value]="sousClasse.id">{{ sousClasse. nomclasse}}</option>
+      </select>
+      <div *ngIf="classeForm.get('nomsclasse')?.invalid && classeForm.get('nomsclasse')?.touched" class="text-danger">
+        La sous-classe est requise.
+      </div>
+    </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Département</mat-label>
-      <mat-select matInput placeholder="Sélectionnez un département" formControlName="departement" required>
-        <mat-option *ngFor="let departement of departements" [value]="departement.id">
-          {{ departement.nom }}
-        </mat-option>
-      </mat-select>
-      <mat-icon matPrefix>group</mat-icon>
-      <mat-error *ngIf="classeForm.get('departement')?.invalid">
-        Veuillez sélectionner un département.
-      </mat-error>      
-    </mat-form-field>
 
-    <mat-dialog-actions class="action-buttons">
-      <button mat-raised-button color="primary" mat-dialog-close type="submit" [disabled]="classeForm.invalid">Ajouter</button>
-      <button mat-button [mat-dialog-close]="true" color="warn">Annuler</button>
-    </mat-dialog-actions>
+
+    <div class="form-group">
+      <label for="matiere">Matière</label>
+      <select
+        id="matiere"
+        formControlName="matiere"
+        class="form-control"
+        [ngClass]="{'is-invalid': classeForm.get('matiere')?.invalid && classeForm.get('matiere')?.touched}"
+      >
+        <option value="" disabled selected>Choisir une matière</option>
+        <option *ngFor="let matiere of matieres" [value]="matiere.id">{{ matiere.nom }}</option>
+      </select>
+      <div *ngIf="classeForm.get('matiere')?.invalid && classeForm.get('matiere')?.touched" class="text-danger">
+        La matière est requise.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="matricule">Matricule</label>
+      <input
+        type="text"
+        id="matricule"
+        formControlName="matricule"
+        class="form-control"
+        placeholder="Matricule de la classe (8 chiffres)"
+      />
+      <div *ngIf="classeForm.get('matricule')?.invalid && classeForm.get('matricule')?.touched" class="text-danger">
+        Le matricule doit être composé de 8 chiffres.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="classeForm.invalid">Ajouter</button>
   </form>
-</mat-dialog-content>
+</div>

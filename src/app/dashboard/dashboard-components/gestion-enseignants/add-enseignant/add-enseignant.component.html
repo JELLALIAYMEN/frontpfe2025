@@ -1,5 +1,5 @@
 <mat-dialog-content class="mat-typography form-container">
-  <h3>Ajouter un nouveau enseignant</h3>
+  <h3>Ajouter un nouveau  Staff </h3>
   <form [formGroup]="userForm" (ngSubmit)="addUser()">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Nom</mat-label>
@@ -45,7 +45,10 @@
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Profil</mat-label>
-      <input matInput placeholder="Profil" formControlName="profil" value="enseignant" readonly>
+      <mat-select formControlName="profil" required>
+        <mat-option *ngFor="let profil of profils" [value]="profil">{{ profil }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="profil?.invalid && profil?.touched">Le profil est requis.</mat-error>
     </mat-form-field>
 
     <mat-dialog-actions>

@@ -11,8 +11,6 @@ export class DepartementService {
   constructor(private http: HttpClient) { }
 
   // Méthode pour récupérer la liste des départements
-  getDepartements(): Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/departement/all`) ;
-  }
+
 
 }

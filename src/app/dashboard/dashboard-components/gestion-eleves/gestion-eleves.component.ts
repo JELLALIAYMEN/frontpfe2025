@@ -18,17 +18,16 @@ export class GestionElevesComponent implements OnInit{
   filtredUsers:any[] = [];
   selectedClasse: string = '';
   classes: any[] = [];
-
-  constructor(private dialog: MatDialog, 
+  searchText: string = '';
+  constructor(private dialog: MatDialog,
     private userService:UserService,
     private router:Router,
     private classService: ClasseService
   ){}
-
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
       next: (data) => {
-        this.users = data.filter((user:any) => user.profil === 'eleve');
+        this.users = data;  // Retirer le filtre ici
         this.filtredUsers = [ ...this.users];
       },
       error: (err) => {
@@ -37,18 +36,20 @@ export class GestionElevesComponent implements OnInit{
     });
     this.getAllClasses();
   }
-  
+
+
+
   filterByClasse(): void {
     console.log('Classe sélectionnée:', this.selectedClasse); // Vérifiez la valeur
     if (this.selectedClasse) {
-      this.filtredUsers = this.users.filter((user) => 
+      this.filtredUsers = this.users.filter((user) =>
         user.classe?.nomclasse?.toLowerCase() === this.selectedClasse.toLowerCase()
       );
     } else {
       this.filtredUsers = [...this.users];
     }
   }
-  
+
 
   getAllClasses(): void {
     this.classService.allClasses().subscribe({
@@ -61,10 +62,19 @@ export class GestionElevesComponent implements OnInit{
       }
     });
   }
+  filterByName() {
+    // Convertir la recherche en minuscule pour que le filtrage ne soit pas sensible à la casse
+    const searchLower = this.searchText.toLowerCase();
 
+    // Filtrer les utilisateurs dont le nom complet (nom + prénom) correspond à la recherche
+    this.filtredUsers = this.users.filter(user => {
+      const fullName = (user.nom + ' ' + user.prenom).toLowerCase();
+      return fullName.includes(searchLower);
+    });
+  }
   openAddEleve(){
     const dialogRef = this.dialog.open(AddEleveComponent, {
-      width: '600px' 
+      width: '600px'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -80,7 +90,7 @@ export class GestionElevesComponent implements OnInit{
     const dialogRef = this.dialog.open(ConfirmationDeleteEleveComponent, {
       data: { id: id }
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log("Utilisateur supprimé!");
@@ -91,7 +101,7 @@ export class GestionElevesComponent implements OnInit{
       }
     });
   }
-  
+
 
   detailsEleve(user: any){
     this.dialog.open(DetailsEleveComponent, {
@@ -114,7 +124,7 @@ export class GestionElevesComponent implements OnInit{
       }
     });
   }
-  
+
   redirectMoyenne(id:any){
     this.router.navigate(['/dashboard/moyennes-notes', id])
   }

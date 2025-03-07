@@ -1,57 +1,53 @@
-
-
 <mat-dialog-content class="mat-typography form-container">
-    <div class="dialog-header">
-      <h3 class="dialog-title">Ajouter un nouveau Module</h3>
-    </div>
-    <form [formGroup]="moduleForm" (ngSubmit)="addModule()">
-      <!-- Nom -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nom Module</mat-label>
-        <input matInput placeholder="Entrez le nom" formControlName="nommodule" required>
-        <mat-icon matPrefix>person</mat-icon>
-        <mat-error *ngIf="nommodule?.invalid && nommodule?.touched">Le nom est requis.</mat-error>
-      </mat-form-field>
-  
-      <!-- Prénom -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Matricule</mat-label>
-        <input matInput placeholder="Entrez la matricule" formControlName="matricule" required>
-        <mat-icon matPrefix>person</mat-icon>
-        <mat-error *ngIf="matricule?.invalid && matricule?.touched">Le matricule est requis.</mat-error>
-      </mat-form-field>
-  
-      <!-- Login -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Contenue</mat-label>
-        <input matInput placeholder="Entrez la contenue" formControlName="contenue" required>
-        <mat-icon matPrefix>account_circle</mat-icon>
-        <mat-error *ngIf="contenue?.invalid && contenue?.touched">La contenue est requis.</mat-error>
-      </mat-form-field>
-  
-      <!-- Email -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Date </mat-label>
-        <input matInput type="date" placeholder="Entrez la date" formControlName="date" required>
-        <mat-icon matPrefix>date</mat-icon>
-        <mat-error *ngIf="date?.invalid && date?.touched">
-           </mat-error>
-      </mat-form-field>
-  
-      <!-- Mot de passe -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Travaille a faire</mat-label>
-        <input matInput type="text" placeholder="Entrez le travaille" formControlName="travailafaire" required >
-        <mat-icon matPrefix>lock</mat-icon>
-        <mat-error *ngIf="travailafaire?.invalid && travailafaire?.touched">
-          </mat-error>
-      </mat-form-field>
-  
-  
-      <mat-dialog-actions class="action-buttons">
-        <button mat-raised-button color="primary" type="submit" [disabled]="moduleForm.invalid">Ajouter</button>
-        <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
-      </mat-dialog-actions>
-    </form>
-  </mat-dialog-content>
-  
+  <div class="dialog-header">
+    <h3 class="dialog-title">Ajouter un nouveau Module</h3>
+  </div>
+  <form [formGroup]="moduleForm" (ngSubmit)="addModule()">
+    <!-- Nom -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom Module</mat-label>
+      <input matInput placeholder="Entrez le nom" formControlName="nommodule" required>
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-error *ngIf="nommodule?.invalid && nommodule?.touched">Le nom est requis.</mat-error>
+    </mat-form-field>
+
+    <!-- Matricule -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Matricule</mat-label>
+      <input matInput placeholder="Entrez la matricule" formControlName="matricule" required>
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-error *ngIf="matricule?.invalid && matricule?.touched">Le matricule est requis.</mat-error>
+    </mat-form-field>
+
+    <!-- Contenu -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Contenu</mat-label>
+      <input matInput placeholder="Entrez le contenu" formControlName="contenue" required>
+      <mat-icon matPrefix>account_circle</mat-icon>
+      <mat-error *ngIf="contenue?.invalid && contenue?.touched">Le contenu est requis.</mat-error>
+    </mat-form-field>
+
+    <!-- Date -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Date</mat-label>
+      <input matInput type="date" placeholder="Entrez la date" formControlName="date" required>
+      <mat-icon matPrefix>date</mat-icon>
+      <mat-error *ngIf="date?.invalid && date?.touched"></mat-error>
+    </mat-form-field>
+
+    <!-- Travail à faire -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Travail à faire</mat-label>
+      <input matInput placeholder="Entrez le travail" formControlName="travailafaire" required>
+      <mat-icon matPrefix>lock</mat-icon>
+      <mat-error *ngIf="travailafaire?.invalid && travailafaire?.touched"></mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions class="action-buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="moduleForm.invalid">Ajouter</button>
+      <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
+    </mat-dialog-actions>
+  </form>
+
+
+</mat-dialog-content>
