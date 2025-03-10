@@ -22,15 +22,16 @@
         id="nomssousclasse"
         formControlName="nomssousclasse"
         class="form-control"
-        [ngClass]="{'is-invalid': classeForm.get('nomsclasse')?.invalid && classeForm.get('nomsclasse')?.touched}"
+        [ngClass]="{'is-invalid': classeForm.get('nomssousclasse')?.invalid && classeForm.get('nomssousclasse')?.touched}"
       >
-        <option value="" disabled selected>Choisir une classe</option>
-        <option *ngFor="let sousClasse of sousClasses" [value]="sousClasse.id">{{ sousClasse. nomclasse}}</option>
+        <option value="" disabled selected>nomssousclasse</option>
+        <option *ngFor="let sousClasse of sousClasses" [value]="sousClasse.id">{{ sousClasse.nomssousclasse }}</option>
       </select>
-      <div *ngIf="classeForm.get('nomsclasse')?.invalid && classeForm.get('nomsclasse')?.touched" class="text-danger">
+      <div *ngIf="classeForm.get('nomssousclasse')?.invalid && classeForm.get('nomssousclasse')?.touched" class="text-danger">
         La sous-classe est requise.
       </div>
     </div>
+
 
 
 

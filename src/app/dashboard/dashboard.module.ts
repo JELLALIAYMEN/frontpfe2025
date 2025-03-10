@@ -14,7 +14,7 @@ import { AddEleveComponent } from './dashboard-components/gestion-eleves/add-ele
 import { GestionParentsComponent } from './dashboard-components/gestion-parents/gestion-parents.component';
 import { AddParentComponent } from './dashboard-components/gestion-parents/add-parent/add-parent.component';
 //import { DetailsEnseigantComponent } from './dashboard-components/gestion-enseignants/details-enseigant/details-enseigant.component';
-import { ModifierEnseignantComponent } from './dashboard-components/gestion-enseignants/modifier-enseignant/modifier-enseignant.component';
+//import { ModifierEnseignantComponent } from './dashboard-components/gestion-enseignants/modifier-enseignant/modifier-enseignant.component';
 import { ConfirmationSuppressionComponent } from './dashboard-components/gestion-enseignants/confirmation-suppression/confirmation-suppression.component';
 import { ModifierEleveComponent } from './dashboard-components/gestion-eleves/modifier-eleve/modifier-eleve.component';
 import { DetailsEleveComponent } from './dashboard-components/gestion-eleves/details-eleve/details-eleve.component';
@@ -78,6 +78,7 @@ import { EmailDialogComponentComponent } from './dashboard-components/email-dial
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
+import { DetailsEnseignantComponent } from './dashboard-components/gestion-enseignants/dashboard/dashboard-components/gestion-enseignants/details-enseignant/details-enseignant.component';
 // Import other necessary modules
 
 //import { DashboardComponent } from './dashboard.component';
@@ -87,6 +88,7 @@ import { DashboardComponent } from './dashboard.component';
   declarations: [
     DashboardComponent,
 
+    ConfirmationDeleteEleveComponent,
     StatisticsComponent,
     GestionEnseignantsComponent,
     GestionElevesComponent,
@@ -95,7 +97,7 @@ import { DashboardComponent } from './dashboard.component';
     GestionParentsComponent,
     AddParentComponent,
 
-    ModifierEnseignantComponent,
+   // ModifierEnseignantComponent,
     ConfirmationSuppressionComponent,
     ModifierEleveComponent,
     DetailsEleveComponent,
@@ -141,7 +143,7 @@ import { DashboardComponent } from './dashboard.component';
     EnvoyerAElevesComponent,
     EnvoyerEmploiComponent,
     GestionModuleComponent,
-    AddModuleComponent,
+    //AddModuleComponent,
     AssaignerHomeworkComponent,
     GestionTypePaiementComponent,
     AjoutTypePaiementComponent,
@@ -153,19 +155,21 @@ import { DashboardComponent } from './dashboard.component';
 
 
 
-    EmailDialogComponentComponent
+    EmailDialogComponentComponent,
+          DetailsEnseignantComponent
   ],
   exports: [
 
     HomeEnseignantComponent,
     HomeEleveComponent,
-    ProfileComponent,
+
     DashboardComponent,
 
 
   ],
   imports: [
     CommonModule,
+
     TawasalnaModule,
     MatDialogModule,
     ReactiveFormsModule,

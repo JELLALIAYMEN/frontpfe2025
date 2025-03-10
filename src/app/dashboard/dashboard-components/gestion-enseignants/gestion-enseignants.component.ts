@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEnseignantComponent } from './add-enseignant/add-enseignant.component';
-import { DetailsEnseigantComponent } from './details-enseigant/details-enseigant.component';
-import { ModifierEnseignantComponent } from './modifier-enseignant/modifier-enseignant.component';
 import { ConfirmationSuppressionComponent } from './confirmation-suppression/confirmation-suppression.component';
+ // Import du composant détails
 import { UserService } from 'src/app/services/user.service';
 import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';
+import { DetailsEnseignantComponent } from './dashboard/dashboard-components/gestion-enseignants/details-enseignant/details-enseignant.component';
 
 @Component({
   selector: 'app-gestion-enseignants',
@@ -21,18 +21,16 @@ export class GestionEnseignantsComponent implements OnInit, OnDestroy {
   constructor(private dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
-    // Charger les enseignants
     this.userService.getUsers().subscribe({
       next: (data) => {
         this.users = data.filter((user: any) => user.profil === 'enseignant');
-        this.filtredEnseignants = [...this.users]; // Initialisation des enseignants filtrés
+        this.filtredEnseignants = [...this.users];
       },
       error: (err) => {
         console.error('Erreur lors de la récupération des enseignants:', err);
       },
     });
 
-    // Gestion de la recherche avec debounce
     const searchSubscription = this.searchSubject
       .pipe(debounceTime(300), distinctUntilChanged())
       .subscribe((query) => this.searchEnseignants(query));
@@ -41,8 +39,14 @@ export class GestionEnseignantsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Désabonnement pour éviter les fuites de mémoire
     this.subscriptions.unsubscribe();
+  }
+
+  detailsEnseignant(user: any): void {
+    this.dialog.open(DetailsEnseignantComponent, {
+      width: '600px',
+      data: { enseignant: user }
+    });
   }
 
   openAddEnseignant(): void {
@@ -51,32 +55,7 @@ export class GestionEnseignantsComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('Utilisateur ajouté!');
         this.reloadEnseignants();
-      } else {
-        console.log('Ajout annulé');
-      }
-    });
-  }
-
-  detailsEnseignant(user: any): void {
-    this.dialog.open(DetailsEnseigantComponent, {
-      width: '600px',
-      data: user,
-    });
-  }
-
-  modifierEnseignant(user: any): void {
-    const dialogRef = this.dialog.open(ModifierEnseignantComponent, {
-      width: '600px',
-      data: user,
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log('Utilisateur modifié!');
-        this.reloadEnseignants();
-      } else {
-        console.log('Modification annulée');
       }
     });
   }
@@ -88,10 +67,7 @@ export class GestionEnseignantsComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('Enseignant supprimé!');
         this.reloadEnseignants();
-      } else {
-        console.log('Suppression annulée');
       }
     });
   }
@@ -99,19 +75,32 @@ export class GestionEnseignantsComponent implements OnInit, OnDestroy {
   onSearchInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const query = inputElement.value;
-    this.searchSubject.next(query); // Déclencher la recherche
+    this.searchSubject.next(query);
   }
 
   searchEnseignants(query: string): void {
     query = query.toLowerCase().trim();
     if (query) {
       this.filtredEnseignants = this.users.filter((user) =>
-        user.nom.toLowerCase().includes(query) || 
+        user.nom.toLowerCase().includes(query) ||
         user.prenom.toLowerCase().includes(query)
       );
     } else {
-      this.filtredEnseignants = [...this.users]; // Réinitialiser si aucune recherche
+      this.filtredEnseignants = [...this.users];
     }
+  }
+
+  modifierEnseignant(user: any): void {
+    const dialogRef = this.dialog.open(AddEnseignantComponent, {
+      width: '600px',
+      data: { enseignant: user }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.reloadEnseignants();
+      }
+    });
   }
 
   private reloadEnseignants(): void {

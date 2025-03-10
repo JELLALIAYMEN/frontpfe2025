@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DetailModuleComponent } from './dashboard/dashboard-components/gestion-module/detail-module/detail-module.component';
 
 
 
@@ -29,10 +30,11 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     AppComponent,
     FullComponent,
-
+    DetailModuleComponent,
   ],
   imports: [
     BrowserModule,
+
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,

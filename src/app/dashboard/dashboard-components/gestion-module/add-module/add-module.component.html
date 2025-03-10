@@ -46,8 +46,8 @@
     <mat-dialog-actions class="action-buttons">
       <button mat-raised-button color="primary" type="submit" [disabled]="moduleForm.invalid">Ajouter</button>
       <button mat-button [mat-dialog-close]="true" type="button" color="warn" (click)="cancel()">Annuler</button>
+      <!-- Ajouter le bouton "Voir Détails" -->
+      <button mat-raised-button color="accent" (click)="openDetailsDialog()">Voir Détails</button>
     </mat-dialog-actions>
   </form>
-
-
 </mat-dialog-content>

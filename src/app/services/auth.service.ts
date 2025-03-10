@@ -31,35 +31,41 @@ export interface Utilisateur {
   providedIn: 'root'
 })
 export class AuthService {
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor(private http: HttpClient,
-              private router: Router,) { }
-  addEleve(nomclasse: string, matricule: string) {
-    const url = `${environment.BASE_URL}/users/addEleve/${nomclasse}/${matricule}`;
-    return this.http.post(url, {}); // Envoie une requête POST vide ou avec un corps si nécessaire
-  }
-
- addUser(user: Utilisateur): Observable<any> {
-    const url = `${environment.BASE_URL}/users/addUser`;
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post(url, user, {headers});
-  }
   login(email: string, password: string): Observable<LoginResponse> {
-    console.log('Attempting login with:', email, password); // Ajout du log
-
+    console.log('Attempting login with:', email, password);
     const url = `${environment.BASE_URL}/auth/login2`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body: LoginRequest = { email, password };
 
     return this.http.post<LoginResponse>(url, body, { headers }).pipe(
       catchError(error => {
-        if (error.status === 401) {
-          console.log('Unauthorized: Invalid credentials');
-        }
+        console.error('Login error:', error);
         return throwError(error);
       })
     );
   }
+  addUser(user: Utilisateur, nomclasse: string): Observable<any> {
+    const url = `${environment.BASE_URL}/addEleve/${nomclasse}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(url, user, { headers }).pipe(
+      catchError(error => {
+        console.error('Error adding user:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+
+/*
+ addUser(user: Utilisateur): Observable<any> {
+    const url = `${environment.BASE_URL}/users/addUser`;
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post(url, user, {headers});
+  }
+*/
 
 
   handleLoginResponse(response: any): void {

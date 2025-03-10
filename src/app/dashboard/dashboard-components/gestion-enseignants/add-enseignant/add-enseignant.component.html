@@ -1,6 +1,6 @@
 <mat-dialog-content class="mat-typography form-container">
-  <h3>Ajouter un nouveau  Staff </h3>
-  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+  <h3>Ajouter un nouveau Staff </h3>
+  <form [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)"> <!-- Passer userForm.value -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Nom</mat-label>
       <input matInput placeholder="Entrez le nom" formControlName="nom" required>
@@ -11,6 +11,16 @@
       <mat-label>Prénom</mat-label>
       <input matInput placeholder="Entrez le prénom" formControlName="prenom" required>
       <mat-error *ngIf="prenom?.invalid && prenom?.touched">Le prénom est requis.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Matricule</mat-label>
+      <input matInput placeholder="Entrez le matricule" formControlName="matricule" required>
+      <mat-error *ngIf="matricule?.invalid && matricule?.touched">
+        <span *ngIf="matricule?.errors?.['required']">Le matricule est requis.</span>
+        <span *ngIf="matricule?.errors?.['minlength'] || matricule?.errors?.['maxlength']">
+      Le matricule doit contenir exactement 8 chiffres.
+    </span>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">

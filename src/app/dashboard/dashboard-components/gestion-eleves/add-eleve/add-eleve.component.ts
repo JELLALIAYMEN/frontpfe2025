@@ -18,9 +18,9 @@ export class AddEleveComponent implements OnInit {
     private authService: AuthService,
     private dialogRef: MatDialogRef<AddEleveComponent>,
     private classService: ClasseService,
-
     private fb: FormBuilder
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getAllClasses();
@@ -62,11 +62,8 @@ export class AddEleveComponent implements OnInit {
     const nomclasse = this.userForm.get('nomclasse')?.value;
     const matricule = this.userForm.get('matricule')?.value;
 
-
-    this.authService.addEleve(nomclasse,matricule).subscribe({
-     // .userService
-    // .addUser(user).subscribe({
-    // .addEleve(nomclasse,matricule).subscribe({
+    // Appel à la méthode addUser du service avec les bons arguments
+    this.authService.addUser(user, nomclasse).subscribe({
       next: (response) => {
         console.log('Utilisateur ajouté avec succès', response);
         this.dialogRef.close('Utilisateur ajouté');
@@ -81,15 +78,42 @@ export class AddEleveComponent implements OnInit {
     this.dialogRef.close('Annulé');
   }
 
-  // Accesseurs pour obtenir les contrôles des formulaires et les erreurs
-  get nom() { return this.userForm.get('nom'); }
-  get prenom() { return this.userForm.get('prenom'); }
-  get login() { return this.userForm.get('login'); }
-  get email() { return this.userForm.get('email'); }
-  get password() { return this.userForm.get('password'); }
-  get libelle() { return this.userForm.get('libelle'); }
-  get profil() { return this.userForm.get('profil'); }
-  get nomclasse() { return this.userForm.get('nomclasse'); }
-  get matricule() { return this.userForm.get('matricule'); }
+// Accesseurs pour obtenir les contrôles des formulaires et les erreurs
+  get nom() {
+    return this.userForm.get('nom');
+  }
+
+  get prenom() {
+    return this.userForm.get('prenom');
+  }
+
+  get login() {
+    return this.userForm.get('login');
+  }
+
+  get email() {
+    return this.userForm.get('email');
+  }
+
+  get password() {
+    return this.userForm.get('password');
+  }
+
+  get libelle() {
+    return this.userForm.get('libelle');
+  }
+
+  get profil() {
+    return this.userForm.get('profil');
+  }
+
+  get nomclasse() {
+    return this.userForm.get('nomclasse');
+  }
+
+  get matricule() {
+    return this.userForm.get('matricule');
+  }
+
 
 }

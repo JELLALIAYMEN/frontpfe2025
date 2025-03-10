@@ -1,71 +1,92 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service'; // Assurez-vous que ce chemin est correct
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-///import any = jasmine.any;
+import { AuthService } from 'src/app/services/auth.service';
+import { ClasseService } from 'src/app/services/classe.service';
 
 @Component({
-  selector: 'app-add-enseignant',
-  templateUrl: './add-enseignant.component.html',
-  styleUrls: ['./add-enseignant.component.scss']
+  selector: 'app-add-eleve',
+  templateUrl: './add-eleve.component.html',
+  styleUrls: ['./add-eleve.component.scss']
 })
-export class AddEnseignantComponent implements OnInit {
+export class AddEleveComponent implements OnInit {
   userForm!: FormGroup;
-  profils=["Teacher","autre","surveillant"]
+  classes: any[] = [];
+
   constructor(
-    private fb: FormBuilder,
     private authService: AuthService,
-    private dialogRef: MatDialogRef<AddEnseignantComponent>
+    private dialogRef: MatDialogRef<AddEleveComponent>,
+    private classService: ClasseService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.getAllClasses();
     this.userForm = this.fb.group({
       nom: ['', [Validators.required]],
       prenom: ['', [Validators.required]],
       login: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      profil: ['enseignant', [Validators.required]],
-      libelle: ['', [Validators.required]]
+      profil: ['eleve', [Validators.required]],
+      libelle: ['', [Validators.required]],
+      nomssousclasse: ['', [Validators.required]],
+      matricule: ['', [Validators.required]]
+
     });
   }
+
+  getAllClasses() {
+    this.classService.allClasses().subscribe({
+      next: (response) => {
+        this.classes = response;
+        console.log('Classes récupérées:', this.classes);
+      },
+      error: (error) => {
+        console.error('Erreur lors de la récupération des classes', error);
+      }
+    });
+  }
+
   addUser() {
     if (this.userForm.invalid) {
-      console.log('Formulaire invalide', this.userForm.value);
-      alert('Veuillez remplir correctement le formulaire.');
+      console.log('Formulaire invalide');
       return;
     }
 
+    console.log('Formulaire:', this.userForm.value);
+
     const user = this.userForm.value;
-    this.authService.addUser(user).subscribe({
+    const nomssousclasse  = this.userForm.get('nomclasse')?.value;
+    const matricule = this.userForm.get('matricule')?.value;
+
+
+    this.authService.addEleve(user, matricule).subscribe({
       next: (response) => {
-        console.log("Réponse du serveur:", response);
-        alert(response.message);  // Utilise response.message au lieu de response directement
+        console.log('Utilisateur ajouté avec succès', response);
+        this.dialogRef.close('Utilisateur ajouté');
       },
       error: (error) => {
-        console.error("Erreur lors de l'ajout:", error);
-        alert(error.error.message || "Une erreur est survenue");
+        console.error('Erreur lors de l\'ajout de l\'utilisateur', error);
       }
     });
-
-
   }
-
-
-
-
 
   cancel() {
-    this.dialogRef.close('Ajout annulé');
+    this.dialogRef.close('Annulé');
   }
 
-  // Accesseurs pour les contrôles du formulaire
+  // Accesseurs pour obtenir les contrôles des formulaires et les erreurs
   get nom() { return this.userForm.get('nom'); }
   get prenom() { return this.userForm.get('prenom'); }
   get login() { return this.userForm.get('login'); }
   get email() { return this.userForm.get('email'); }
   get password() { return this.userForm.get('password'); }
-  get profil() { return this.userForm.get('profil'); }
   get libelle() { return this.userForm.get('libelle'); }
+  get profil() { return this.userForm.get('profil'); }
+  get nomclasse() { return this.userForm.get('nomclasse'); }
+  get matricule() { return this.userForm.get('matricule'); }
+
 }
+
 

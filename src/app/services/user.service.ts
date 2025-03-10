@@ -28,10 +28,6 @@ export class UserService {
     return this.http.get(`${environment.BASE_URL}/users/getbyemail?email=${email}`);
   }
 
-  getElevesByClass(classe: string): Observable<any[]> {
-    const params = new HttpParams().set('nomclasse', classe); // Utilisation de 'nomclasse' pour correspondre à ce qui est attendu côté backend
-    return this.http.get<any[]>(`${environment.BASE_URL}/users/eleveByClass`, { params });
-  }
 
 
   deleteUser(idUtilisateur: any): Observable<any> {
@@ -55,6 +51,9 @@ export class UserService {
     return this.http.get(`${environment.BASE_URL}/users/ all`, { responseType: 'text' })// Parse the JSON string into a JavaScript object
 
   }
+  getElevesByClasse(classe: string): Observable<any> {
+    return this.http.get<any>(`${environment.BASE_URL}/users/eleveByClass?nomclasse=${classe}`);
+  }
 
   addUser(user: Utilisateur): Observable<any> {
     const url = `${environment.BASE_URL}/users/addUser`;
@@ -63,4 +62,3 @@ export class UserService {
   }
 
 }
-

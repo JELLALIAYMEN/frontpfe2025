@@ -17,6 +17,7 @@ import { ActualitesComponent } from './actualites/actualites.component';
 import { DetailsReclamationComponent } from './reclamations/details-reclamation/details-reclamation.component';
 import { ReponseComponent } from './reclamations/reponse/reponse.component';
 
+
 import {AddModuleComponent} from "../dashboard/dashboard-components/gestion-module/add-module/add-module.component";
 import {
   DeleteModuleComponent
@@ -24,8 +25,10 @@ import {
 import {
   DetailModuleComponent
 } from "../dashboard/dashboard-components/gestion-module/detail-module/detail-module.component";
-import { DashboardModule } from '../dashboard/dashboard.module';
+
 import { MatDialogModule } from '@angular/material/dialog';
+import { DashboardModule } from '../dashboard/dashboard.module';
+
 
 
 @NgModule({
@@ -42,7 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReponseComponent,
     AddModuleComponent,
     DeleteModuleComponent,
-    DetailModuleComponent,
+
 
   ],
   imports: [

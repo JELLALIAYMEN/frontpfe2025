@@ -18,9 +18,19 @@ export class ClasseService {
     countClasses(): Observable<any> {
       return this.http.get<any>(`${environment.BASE_URL}/classe/count-classes`);
     }
+  getSousClasses(): Observable<any> {
+    return this.http.get<any>(`${environment.BASE_URL}/class/all`);
+  }
 
 
   allClasses(): Observable<any> {
     return this.http.get<any>(`${environment.BASE_URL}/classe/afficher`);
   }
+
+  addSousclass(sousclass: any): Observable<any> {
+    return this.http.post<any>(`${environment.BASE_URL}/class/add`, sousclass);
+  }
+
+
+
 }

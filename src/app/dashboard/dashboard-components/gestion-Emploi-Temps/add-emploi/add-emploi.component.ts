@@ -1,28 +1,32 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ClasseService } from 'src/app/services/classe.service';
 import { EmploiDuTempsService } from 'src/app/services/emploi-du-temps.service';
 import { MatieresService } from 'src/app/services/matieres.service';
 import { SallesService } from 'src/app/services/salles.service';
-import {SousclassService} from "../../../../services/sous-classe-service.service";
+
 
 @Component({
   selector: 'app-add-emploi',
   templateUrl: './add-emploi.component.html',
   styleUrls: ['./add-emploi.component.scss']
 })
-export class AddEmploiComponent {
+export class AddEmploiComponent  implements  OnInit{
   emploiForm!: FormGroup;
   classes: any[] = [];
+
+sousclasses: any[] = [];
   joursDeLaSemaine: string[] = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
   matieres: any[] = [];
   salles: any[] = [];
+
+
   constructor(
     private emploiService: EmploiDuTempsService,
     private fb: FormBuilder,
     private classService: ClasseService,
-    private    sousclassService:SousclassService,
+
     private dialogRef: MatDialogRef<AddEmploiComponent>,
     private salleService: SallesService,
     private matiereService: MatieresService
@@ -31,6 +35,7 @@ export class AddEmploiComponent {
 
   ngOnInit(): void {
     this.getAllClasses();
+    //this.g
     this.getAllSalles();
     this.getAllMatieres();
     this.emploiForm = this.fb.group({
@@ -46,7 +51,7 @@ export class AddEmploiComponent {
   }
 
   getAllClasses() {
-    this.classService.allClasses().subscribe({
+    this.classService.getSousClasses().subscribe({
       next: (response) => {
         this.classes = response;
         console.log('Classes récupérées:', this.classes);
